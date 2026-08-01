@@ -1,0 +1,27 @@
+{
+  "name": "unity",
+  "displayName": "Unity Agent",
+  "description": "Observe, diagnose, and safely operate a Unity project's CLI build pipeline via the standalone Unity CLI. A read-first, gamedev-focused Claude Code agent with a project/Editor-version doctor that routes the CLI surface on Editor version (2022 LTS = batchmode; Unity 6 adds the verified Pipeline live-Editor surface and MCP), gated unity build/test/run, live-Editor control that honors Unity's own confirm/dry_run gates, license-vs-auth diagnosis, and a project-tree guard hook.",
+  "version": "0.2.0",
+  "author": {
+    "name": "ButterStack"
+  },
+  "homepage": "https://github.com/ButterStack/gamedev-agents/tree/main/unity",
+  "repository": "https://github.com/ButterStack/gamedev-agents",
+  "keywords": [
+    "unity",
+    "unity3d",
+    "unity-cli",
+    "gamedev",
+    "batchmode",
+    "unity-hub",
+    "editor-version",
+    "unity-license",
+    "com.unity.pipeline",
+    "pipeline",
+    "unity6",
+    "mcp",
+    "perforce",
+    "build-pipeline"
+  ]
+}
