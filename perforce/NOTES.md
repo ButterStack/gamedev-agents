@@ -64,40 +64,33 @@ Validated against a live Helix Core **P4D 2026.1** (a dockerized `p4d`, 3 classi
 depots, ~8,700 changelists, real `.fbx`/`.png`/`.wav` assets). Corrections found by
 running the commands, not just reading docs:
 
-- **`-Mj` alone is not structured** - it wraps each text line as `{"data":...,"level":0}`.
-  Use `p4 -ztag -Mj <cmd>` for real fields (`change`, `user`, `time`, `headType`, ...).
-- **`p4 describe -du -dl <n>` is wrong** (a latent bug we found copied into more than
-  one internal client): `-dl` means "ignore line endings", so the number is parsed as
-  another changelist. Correct: `p4 describe -du <n>` (the optional number *attaches*
-  as context lines: `-du3`); there is no per-file line cap - bound output with `head`.
+- **`-Mj` alone is not structured** - it wraps each text line as
+  `{"data":...,"level":0}`. Use `p4 -ztag -Mj <cmd>` for real fields (`change`,
+  `user`, `time`, `headType`, ...).
+- **`p4 describe -du -dl <n>` is wrong** (a latent bug we found copied into more
+  than one internal client): `-dl` means "ignore line endings", so the number gets
+  parsed as another changelist. Correct: `p4 describe -du <n>` (the optional number
+  *attaches* as context lines: `-du3`) - there's no per-file line cap; bound output
+  with `head`.
 - **`p4 -ztag describe` truncates the description to its first line** - use plain
   `p4 describe -s <n>` and read the tab-indented body.
 - `p4 info` succeeds **unauthenticated**; most else needs a ticket - always confirm
   with `p4 login -s` (a "session has expired" is the common real-world state).
-- Worktree isolation validated end-to-end: derive a per-worktree `p4 client` from the
-  current client, bind via `.p4config`, and delete cleanly (and it correctly does
-  **not** create a rogue client when none exists - `client -o <missing>` returns a
-  broad template, detected via the absent `Update` field).
-- **Streams validated** on a throwaway stream depot (created + torn down): the default
-  `-S <stream>` direction is *toward the parent* (up = copy), so merge-**down** is bare
-  `p4 merge` on the child (or `merge -S <child> -r`); copy-**up** is `p4 copy -S <child>`
-  from the parent, and the server enforces merge-down-before-copy-up. `p4 istat -a`
-  exposes `integFromParentHow`/`integToParentHow` + `from/toResult`. Deleting a stream
-  only *tombstones* it (`streams -a` shows `(deleted)`); `p4 stream --obliterate -y`
-  purges, and a stream depot won't delete until tombstones are gone.
-- **Held `+l` lock validated**: `opened -a` shows `... (binary+l) by user@client *locked*`;
-  `fstat` exposes `otherOpen0`/`otherLock0`/`otherAction0` by default.
-- **Undocumented flags catalogued** (`p4 help undoc`, live-verified) into a
-  `p4-undoc` skill: `-F`/`-e` formatting + error codes, `-ztag -Mj`, relative-revision
-  and action revspecs, `-zmax*` self-throttling, `-x - run` batching, `--field`. Plus a
-  never-run list (`storage`/`dbpack`/`unsubmit`/`duplicate`/`retype`/`admin dump` ...) now
-  also enforced by the `guard-p4` hook.
+- **Streams validated** on a throwaway stream depot: the default `-S <stream>`
+  direction is *toward the parent* (up = copy), so merge-**down** is bare `p4 merge`
+  on the child and copy-**up** is `p4 copy -S <child>` from the parent, with the
+  server enforcing merge-down-before-copy-up. Deleting a stream only *tombstones*
+  it; `p4 stream --obliterate -y` is the real purge.
+- **Held `+l` lock validated**: `opened -a` shows the lock holder directly, and
+  `fstat` exposes the same state as structured fields.
+- Worktree isolation (a per-worktree `p4 client` derived from the current one) and
+  a catalogue of undocumented flags (`p4 help undoc`) were also live-verified; see
+  the `p4-undoc` skill and `guard-p4` hook for what that produced.
 
 Still authored-from-docs (validate on your setup, and open an issue with what you
-find):
-- Per-engine external merge-tool invocations for `.uasset`/`.umap` resolve.
-- Edge/replica/broker routing + SSL `p4 trust` flow (our test server is single,
-  non-SSL).
+find): per-engine external merge-tool invocations for `.uasset`/`.umap` resolve,
+and edge/replica/broker routing + SSL `p4 trust` flow (our test server is single,
+non-SSL).
 
 ## Source talk (design philosophy)
 

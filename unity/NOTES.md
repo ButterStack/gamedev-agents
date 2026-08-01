@@ -98,49 +98,18 @@ Soft gates the agent owns: `--allow-install` (multi-GB silent download);
 
 ## Verified vs not-yet-verified
 
-**Verified on the rig (2026-07-22, CLI `1.0.0-beta.2`, Unity 2022.3.62f3):**
-the install lines (including the undocumented Windows `install.ps1`); the
-full command surface vs the docs page; global options and format behavior;
-exit codes; `unity build`/`test`/`run` flags and help-text examples
-(verbatim); the license state (`auth status` "not signed in" alongside
-`license status: active`, Personal ULF at `C:\ProgramData\Unity\Unity_lic.ulf`);
-`editors` subcommands; the archived-version changeset requirement
-(`unity install 2022.3.62f3 -c 96770f904ca7`); the release API for changeset
-discovery; the beta-only channel (`latest.json` 404s).
+Verified first-hand against a real rig (Windows, Unity CLI beta, both a 2022.3 LTS
+Editor and a Unity 6 Editor): the full command surface against the docs page,
+exit-code and format behavior, an end-to-end `build`/`test` producing a real
+artifact and NUnit report, the Unity 6 Pipeline boundary enforcement, and the full
+Pipeline live-Editor surface (the state ladder, the 140-tool dump, the server-side
+`confirm`/`dry_run` gates, the loopback-only transport). Full findings - including
+what this pass corrected from the original docs-derived draft - are in
+[`LEARNINGS.md`](./LEARNINGS.md).
 
-**Since verified by a later live-validation pass** (full findings in
-[`LEARNINGS.md`](./LEARNINGS.md)): an end-to-end `unity build` on 2022.3
-producing a real artifact; `unity test` writing a real NUnit report; the §2
-C# build-method contract, compiled and run on the rig **both ways** (checking
-and swallowing the `BuildReport`) - the exit-0 trap reproduced at exit `0`
-with no artifact; the Unity 6 boundary, confirmed by `unity pipeline install`
-refusing a 2022.3 project with `Pipeline package requires Unity 6.0 or
-higher.` and leaving the manifest untouched. That pass also **corrected** two
-things authored here: exit codes are not the documented `0`/`1`/`130` (`6`
-is common, and the CLI's code is not the Editor's), and the missing-
-`com.unity.test-framework` precondition.
-
-**Verified by the Unity 6 Pipeline pass (2026-07-22, Editor `6000.3.20f1`,
-`com.unity.pipeline` `0.3.1-exp.1`, live Editor):** `pipeline install`
-succeeding - with **no sign-in required** (the docs' `auth login` ordering is
-not enforced); the state ladder (`pipeline list` / `status` / `list` /
-`command`) and its no-Editor degradation modes; the 140-tool dump
-(`unity list --format json`) with Unity's own server-side `confirm`/`dry_run`
-gates (29/40 tools, 400 + exit 6 on refusal); the response envelope and the
-second exit-0 trap (`unity command` exits 0 on inner `success:false`); the
-nine `*_status` async pollers; `list_build_targets`/`isInstalled` as the
-build precondition; the loopback-only transport (`127.0.0.1:7800`); and the
-`unity mcp configure --list` client table (16 clients incl. `claude-code`).
-All captured in the `unity-pipeline` skill.
-
-**Still not verified:** running `unity mcp` end-to-end (starting the stdio
-server and driving it from a client); parameter passing to `unity command`
-beyond the `--confirm true` flag form; most of the 140 Pipeline tools
-individually (the package is experimental and the surface will move);
-non-Windows CLI installs; the dirty-tree guard behind `--allow-dirty-build`;
-any build target other than `StandaloneWindows64`, which leaves the whole
-`--android-*` family help-level only; and the full option surfaces of the
-assorted subcommands (`templates`, `cache`, `hub`, `env`, `config`, ...).
+**Still not verified:** running `unity mcp` end-to-end from a real client; most of
+the 140 Pipeline tools individually (the package is experimental and will move);
+non-Windows CLI installs; and any build target beyond the one exercised here.
 
 ## Open questions
 

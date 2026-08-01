@@ -41,14 +41,12 @@ messages for `#ci`/`#build`/`#jenkins`/`[ci]`/`ci:`/`--ci` (with optional
 build. That's where the crumb-in-session rule, the expected `201` + `Location` queue
 URL response shape, and the CI-tag routing model in `jenkins-p4-bridge` come from.
 
-A real production finding worth restating generally: **a webhook token passed as a
-plain Jenkins `StringParameter` is readable via `api/json` by any read (including
-anonymous) user**, because build parameters are visible to anyone who can view the
-job. The fix is a masked Jenkins credential (`withCredentials`), not a plain string
-parameter - and this agent's secret-exposure check (`jenkins-observe` §9) exists
-because of that finding: it proactively scans build parameters for values that look
-like tokens/secrets/keys/passwords (by name match or high entropy) and recommends the
-masked-credential fix.
+A real production finding shaped one of the agent's standing checks directly: a
+webhook token passed as a plain Jenkins build parameter is readable by any read
+user, including anonymous - see [`LEARNINGS.md`](./LEARNINGS.md) for the full
+story. That's why `jenkins-observe`'s secret-exposure check exists at all: it
+proactively scans build parameters for values that look like credentials and
+recommends a masked Jenkins credential instead of a plain string parameter.
 
 ## Jenkins operational surface
 

@@ -78,31 +78,15 @@ agent, same as the perforce agent's identity-from-`p4 info` rule.
 ## Live-engine validation learnings
 
 Validated against real Unreal Engine 5.6 and 5.8 installs, running real
-`BuildCookRun` builds and cooks end-to-end (not just log samples) - see
-[`fixtures/`](./fixtures) for the actual captured build/cook logs this plugin's log
-grammar was checked against, and [`LEARNINGS.md`](./LEARNINGS.md) for the full dated
-findings. The headline corrections:
-
-- **A matched 5.6 cook uses ZenServer, not the classic DDC line.** Real UE 5.5+ has
-  **no `DDC Hit Rate` line** in its cook log - cache effectiveness instead lives in
-  `LogShaderCompilers: ... FShaderJobCache stats ... cache hits x%, DDC hits y%`, and
-  cook progress is a `Cooked packages N ... Total T` tally, not per-asset lines. This
-  held on both 5.6 and 5.8, so the fix is version-general, not a 5.6-specific patch.
-- **A headless engine/binary mismatch does not print the interactive "rebuild?"
-  prompt.** Running UE 5.8 against 5.6-built binaries **silently drops** the mismatched
-  module and reports a misleading `LogPluginManager: ... could not be found ...
-  consider disabling the plugin` - which is a trap: the right fix is to rebuild for
-  the running engine, not disable the plugin the log suggests disabling.
-  Reproduced and captured live; see `fixtures/parrot-ue5.8-vs-5.6-mismatch.txt`.
-- **UBT exit codes, verified against real failures**: `8` = RulesError (a bad module
-  dependency reference), `6` = OtherCompilationError - corrected from an earlier,
-  wrong guess. See `fixtures/parrot-ue5.6-build-fail-rulesError.txt` for the real
-  failure log this was verified against.
-- Standing up a real UE-in-Docker build rig taught its own set of lessons (host
-  architecture, WSL2 idle-shutdown timers, image-transfer pitfalls, RAM pressure on a
-  16 GB box) - these are operational/rig learnings rather than agent-diagnosis fixes,
-  and the durable ones are folded into `unreal-build`'s environment guidance and
-  logged in full in `LEARNINGS.md` section B.
+`BuildCookRun` builds and cooks end-to-end - see [`fixtures/`](./fixtures) for the
+actual captured logs and [`LEARNINGS.md`](./LEARNINGS.md) for the full findings.
+Headlines: real UE 5.5+ cook logs use **ZenServer**, not the classic `DDC Hit Rate`
+line the grammar was originally written against; a headless engine/binary version
+mismatch **silently drops** the mismatched module instead of prompting to rebuild
+(a real trap - the log's own suggested fix is wrong); and UBT's exit codes needed
+correcting (`8` = RulesError, `6` = OtherCompilationError). Standing up the
+real-engine test rig itself (Docker-on-WSL2, host architecture, image transfer)
+taught a separate set of operational lessons, logged in `LEARNINGS.md` section B.
 
 ## Open questions
 
