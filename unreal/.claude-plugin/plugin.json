@@ -1,0 +1,32 @@
+{
+  "name": "unreal",
+  "displayName": "Unreal Agent",
+  "description": "Observe, diagnose, and safely operate an Unreal Engine project's build/cook/package pipeline and editor automation. A read-first, gamedev-focused Claude Code agent with an engine/project version doctor, cook-log diagnosis, gated BuildCookRun/UBT builds, first-party editor scripting, and runtime performance profiling (Unreal Insights, stat/obj triage, GC and Nanite heuristics).",
+  "version": "0.1.0",
+  "author": {
+    "name": "ButterStack"
+  },
+  "homepage": "https://github.com/ButterStack/gamedev-agents/tree/main/unreal",
+  "repository": "https://github.com/ButterStack/gamedev-agents",
+  "keywords": [
+    "unreal",
+    "unreal-engine",
+    "ue5",
+    "gamedev",
+    "buildcookrun",
+    "cook",
+    "uasset",
+    "perforce",
+    "uat",
+    "ubt",
+    "ddc",
+    "remote-control",
+    "profiling",
+    "performance",
+    "unreal-insights",
+    "stat",
+    "gpu",
+    "nanite",
+    "pix"
+  ]
+}

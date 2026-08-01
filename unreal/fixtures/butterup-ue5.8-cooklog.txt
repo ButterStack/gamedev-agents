@@ -1,0 +1,827 @@
+
+Running AutomationTool...
+
+Setting up bundled DotNet SDK
+Start UAT Interactively: dotnet AutomationTool.dll BuildCookRun -project=/work/ButterUp/ButterUp.uproject -noP4 -platform=Linux -clientconfig=Development -build -cook -unattended -utf8output -map=/Game/Dev/Smoke
+/home/ue4/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/10.0/linux-x64/dotnet
+Starting AutomationTool...
+Parsing command line: BuildCookRun -project=/work/ButterUp/ButterUp.uproject -noP4 -platform=Linux -clientconfig=Development -build -cook -unattended -utf8output -map=/Game/Dev/Smoke
+Initializing script modules...
+Total script module initialization time: 0.67 s.
+Using /home/ue4/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/10.0/linux-x64/dotnet
+/home/ue4/.config/Unreal Engine/UnrealBuildTool/BuildConfiguration.xml(4): warning: The element 'ParallelExecutor' in namespace 'https://www.unrealengine.com/BuildConfiguration' has invalid child element 'MaxProcessorCount' in namespace 'https://www.unrealengine.com/BuildConfiguration'. List of possible elements expected: 'ProcessorCountMultiplier, MemoryPerActionBytes, ProcessPriority, bStopCompilationAfterErrors, StopCompilationAfterNumErrors, bShowCompilationTimes, bShowPerActionCompilationTimes, bLogActionCommandLines, bPrintActionTargetNames, bShowCPUUtilization' in namespace 'https://www.unrealengine.com/BuildConfiguration'.
+Executing commands...
+Setting up ProjectParams for /work/ButterUp/ButterUp.uproject
+********** BUILD COMMAND STARTED **********
+Running: /home/ue4/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/10.0/linux-x64/dotnet "/home/ue4/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll" -Target="ButterUpEditor Linux Development -Project=/work/ButterUp/ButterUp.uproject" -Target="ButterUp Linux Development -Project=/work/ButterUp/ButterUp.uproject  -remoteini=\"/work/ButterUp\"  " -log="/home/ue4/Library/Logs/Unreal Engine/LocalBuildLogs/UBA-ButterUpEditor-Linux-Development.txt"
+/home/ue4/.config/Unreal Engine/UnrealBuildTool/BuildConfiguration.xml(4): warning: The element 'ParallelExecutor' in namespace 'https://www.unrealengine.com/BuildConfiguration' has invalid child element 'MaxProcessorCount' in namespace 'https://www.unrealengine.com/BuildConfiguration'. List of possible elements expected: 'ProcessorCountMultiplier, MemoryPerActionBytes, ProcessPriority, bStopCompilationAfterErrors, StopCompilationAfterNumErrors, bShowCompilationTimes, bShowPerActionCompilationTimes, bLogActionCommandLines, bPrintActionTargetNames, bShowCPUUtilization' in namespace 'https://www.unrealengine.com/BuildConfiguration'.
+Log file: /home/ue4/Library/Logs/Unreal Engine/LocalBuildLogs/UBA-ButterUpEditor-Linux-Development.txt
+Executing up to 2 actions based on MaxProcessorCount override
+Creating makefile for ButterUpEditor (no existing makefile)
+Creating makefile for ButterUp (no existing makefile)
+UbaServer - Listening on 0.0.0.0:1345
+UHT compiled-in object format Default
+UHT compiled-in object format Default
+Building ButterUp and ButterUpEditor...
+===== Toolchain Information =====
+ButterUp Linux Development:
+  Using ISPC compiler (/home/ue4/UnrealEngine/Engine/Source/ThirdParty/Intel/ISPC/bin/Linux/ispc)
+    Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20240919, LLVM 18.1.6)
+  Using Clang compiler 20.1.8 (/home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin/clang++)
+    clang version 20.1.8 (github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261) Target: x86_64-unknown-linux-gnu Thread model: posix InstalledDir: /home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin
+  Using Clang archiver (/home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin/llvm-ar)
+    LLVM (http://llvm.org/):   LLVM version 20.1.8   Optimized build.
+  Using toolchain located at '/home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu'
+  Using bundled libc++ standard C++ library.
+  Compressing debug files
+  [Adaptive Build] Excluded from ButterUp unity file: ButterUp.cpp, TuningSubsystem.cpp, FlavorStation.cpp, SceneRouterSubsystem.cpp, SmokeGameMode.cpp, FridgeGoal.cpp, AudioSubsystem.cpp, MeltComponent.cpp, HeatZone.cpp, CoolPickup.cpp, ButterHUD.cpp, SmokePawn.cpp, PatOButterCharacter.cpp, ButterGameState.cpp, Checkpoint.cpp, ButterUpTypes.cpp
+ButterUpEditor Linux Development:
+  Using ISPC compiler (/home/ue4/UnrealEngine/Engine/Source/ThirdParty/Intel/ISPC/bin/Linux/ispc)
+    Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20240919, LLVM 18.1.6)
+  Using Clang compiler 20.1.8 (/home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin/clang++)
+    clang version 20.1.8 (github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261) Target: x86_64-unknown-linux-gnu Thread model: posix InstalledDir: /home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin
+  Using Clang archiver (/home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin/llvm-ar)
+    LLVM (http://llvm.org/):   LLVM version 20.1.8   Optimized build.
+  Using toolchain located at '/home/ue4/UnrealEngine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu'
+  Using bundled libc++ standard C++ library.
+  Compressing debug files
+  [Adaptive Build] Excluded from ButterUp unity file: ButterUp.cpp, TuningSubsystem.cpp, FlavorStation.cpp, SceneRouterSubsystem.cpp, SmokeGameMode.cpp, FridgeGoal.cpp, AudioSubsystem.cpp, MeltComponent.cpp, HeatZone.cpp, CoolPickup.cpp, ButterHUD.cpp, SmokePawn.cpp, PatOButterCharacter.cpp, ButterGameState.cpp, Checkpoint.cpp, ButterUpTypes.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 43 action(s)
+  CPU 9 physical cores, 18 logical cores
+  Memory 9.71 GB physical, 3.06 GB/20.86 GB committed
+  UBA Storage capacity 40 GB
+** For ButterUp-Linux-Development **
+[1/43] Compile SharedPCH.Engine.Project.ValApi.ValExpApi.Cpp20.h
+[2/43] Compile AudioSubsystem.cpp
+[3/43] Compile ButterGameState.cpp
+** For ButterUpEditor-Linux-Development **
+[4/43] Compile SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h
+** For ButterUp-Linux-Development **
+[5/43] Compile ButterHUD.cpp
+** For ButterUpEditor-Linux-Development **
+[6/43] Compile AudioSubsystem.cpp
+[7/43] Compile ButterGameState.cpp
+[8/43] Compile ButterUp.cpp
+[9/43] Compile ButterHUD.cpp
+[10/43] Compile ButterUpTypes.cpp
+[11/43] Compile Checkpoint.cpp
+[12/43] Compile CoolPickup.cpp
+[13/43] Compile FlavorStation.cpp
+[14/43] Compile FridgeGoal.cpp
+[15/43] Compile HeatZone.cpp
+[16/43] Compile MeltComponent.cpp
+[17/43] Compile Module.ButterUp.cpp
+[18/43] Compile PatOButterCharacter.cpp
+[19/43] Compile SceneRouterSubsystem.cpp
+[20/43] Compile SmokeGameMode.cpp
+[21/43] Compile SmokePawn.cpp
+[22/43] Compile TuningSubsystem.cpp
+[23/43] Compile ButterUpEditor.cpp
+[24/43] Link libUnrealEditor-ButterUp.so
+[25/43] Compile PerModuleInline.gen.cpp
+** For ButterUp-Linux-Development **
+[26/43] Compile ButterUp.cpp
+** For ButterUpEditor-Linux-Development **
+[27/43] Link libUnrealEditor-ButterUpEditor.so
+[28/43] WriteMetadata ButterUpEditor.target [NoUba]
+** For ButterUp-Linux-Development **
+[29/43] Compile ButterUpTypes.cpp
+[30/43] Compile Checkpoint.cpp
+[31/43] Compile CoolPickup.cpp
+[32/43] Compile FlavorStation.cpp
+[33/43] Compile FridgeGoal.cpp
+[34/43] Compile HeatZone.cpp
+[35/43] Compile MeltComponent.cpp
+[36/43] Compile Module.ButterUp.cpp
+[37/43] Compile PatOButterCharacter.cpp
+[38/43] Compile SceneRouterSubsystem.cpp
+[39/43] Compile SmokeGameMode.cpp
+[40/43] Compile SmokePawn.cpp
+[41/43] Compile TuningSubsystem.cpp
+[42/43] Link ButterUp
+[43/43] WriteMetadata ButterUp.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 58.16 seconds
+Output binary: /work/ButterUp/Binaries/Linux/ButterUp
+Output binary: /home/ue4/UnrealEngine/Engine/Binaries/Linux/UnrealEditor
+
+Result: Succeeded
+Total execution time: 66.43 seconds
+Trace written to file /home/ue4/.config/Epic/UnrealBuildTool/Trace.uba with size 14.1kb
+Took 66.08s to run dotnet, ExitCode=0
+No build products were made
+Build command time: 66.09 s
+********** BUILD COMMAND COMPLETED **********
+********** COOK COMMAND STARTED **********
+HasMapsToCook /Game/Dev/Smoke
+Params.HasMapsToCook /Game/Dev/Smoke
+Running UnrealEditor Cook for project /work/ButterUp/ButterUp.uproject
+Commandlet log file is /home/ue4/UnrealEngine/Engine/Programs/AutomationTool/Saved/Cook-2026.07.13-17.01.36.txt
+Running: /home/ue4/UnrealEngine/Engine/Binaries/Linux/UnrealEditor-Cmd "/work/ButterUp/ButterUp.uproject" -run=Cook -Map=/Game/Dev/Smoke -TargetPlatform=Linux  -unversioned -fileopenlog -abslog="/home/ue4/UnrealEngine/Engine/Programs/AutomationTool/Saved/Cook-2026.07.13-17.01.36.txt" -stdout -CrashForUAT -unattended -NoLogTimes
+Opening shared memory
+Shared memory doesn't exist, checking legacy lock file
+Checking for a '/tmp/UnrealTraceServer.pid' lock file
+Forking process
+Wait until we know the daemon has started.
+Parent received signal 10
+Daemon signalled successful start
+Forked complete (ret=0)
+- Existing per-process limit (soft=1048576, hard=1048576) is enough for us (need only 1048576)
+Increasing per-process limit of core file size to infinity.
+- Existing per-process limit (soft=18446744073709551615, hard=18446744073709551615) is enough for us (need only 18446744073709551615)
+LogInit: Display: Running engine for game: ButterUp
+LogCore: Display: Requested channels: 'cpu,gpu,frame,log,bookmark,screenshot,region'
+LogCsvProfiler: Display: Metadata set : platform="Linux"
+LogCsvProfiler: Display: Metadata set : config="Development"
+LogCsvProfiler: Display: Metadata set : buildversion="Unknown-CL-0"
+LogCsvProfiler: Display: Metadata set : engineversion="5.8.0-0+Unknown"
+Failed to find game directory: /home/ue4/UnrealEngine/ButterUp/Binaries
+LogCsvProfiler: Display: Metadata set : enginereleaseversion="5.8.0"
+LogCsvProfiler: Display: Metadata set : os="Ubuntu 22.04.2 LTS 6.18.33.1-microsoft-standard-WSL2"
+LogCsvProfiler: Display: Metadata set : cpu="GenuineIntel|12th Gen Intel(R) Core(TM) i7-12700F"
+LogCsvProfiler: Display: Metadata set : pgoenabled="0"
+LogCsvProfiler: Display: Metadata set : pgoprofilingenabled="0"
+LogCsvProfiler: Display: Metadata set : ltoenabled="0"
+LogCsvProfiler: Display: Metadata set : asan="0"
+LogCsvProfiler: Display: Metadata set : mergedmodules="0"
+LogCsvProfiler: Display: Metadata set : compacttset="0"
+LogCsvProfiler: Display: Metadata set : commandline="" /work/ButterUp/ButterUp.uproject -run=Cook -Map=/Game/Dev/Smoke -TargetPlatform=Linux -unversioned -fileopenlog -abslog=/home/ue4/UnrealEngine/Engine/Programs/AutomationTool/Saved/Cook-2026.07.13-17.01.36.txt -stdout -CrashForUAT -unattended -NoLogTimes""
+LogTrace: Display: Control listening on port 1985
+LogCsvProfiler: Display: Metadata set : loginid="7888395b02bd4bd0ae3797fec7d72ec9-000003e8"
+LogCsvProfiler: Display: Metadata set : llm="0"
+LogCsvProfiler: Display: Metadata set : zenstreaming="0"
+LogCsvProfiler: Display: Metadata set : systemresolution.resx="1280"
+LogCsvProfiler: Display: Metadata set : systemresolution.resy="720"
+LogAudio: Display: Audio Device Manager not initializing due to all audio being disabled. If this is not intentional, please check command line arguments for "-nosound".
+LogAssetRegistry: Display: FindShardedCacheFiles: 0 via .ref, 0 via migration fallback, 0 total
+Running command : dotnet Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll -Mode=ValidatePlatforms -OutputSDKs -AllPlatforms -project=/work/ButterUp/ButterUp.uproject -log=/work/ButterUp/Saved/Logs/AutoSDKInfo.txt -verbose -timestamps -progress
+/home/ue4/.config/Unreal Engine/UnrealBuildTool/BuildConfiguration.xml(4): warning: The element 'ParallelExecutor' in namespace 'https://www.unrealengine.com/BuildConfiguration' has invalid child element 'MaxProcessorCount' in namespace 'https://www.unrealengine.com/BuildConfiguration'. List of possible elements expected: 'ProcessorCountMultiplier, MemoryPerActionBytes, ProcessPriority, bStopCompilationAfterErrors, StopCompilationAfterNumErrors, bShowCompilationTimes, bShowPerActionCompilationTimes, bLogActionCommandLines, bPrintActionTargetNames, bShowCPUUtilization' in namespace 'https://www.unrealengine.com/BuildConfiguration'.
+Log file: /work/ButterUp/Saved/Logs/AutoSDKInfo.txt
+##PlatformValidate: Win64 INVALID <UNKNOWN>
+##PlatformValidate: Mac INVALID <UNKNOWN>
+##PlatformValidate: IOS INVALID <UNKNOWN>
+##PlatformValidate: Android INVALID r27c
+##PlatformValidate: Linux VALID v26_clang-20.1.8-rockylinux8
+##PlatformValidate: LinuxArm64 VALID v26_clang-20.1.8-rockylinux8
+##PlatformValidate: TVOS INVALID <UNKNOWN>
+##PlatformValidate: VisionOS INVALID <UNKNOWN>
+Unable to find required SDK version 'MainVersion' for platform Win64. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform Mac. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform IOS. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform TVOS. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform VisionOS. Check your SDK.json files
+Trace written to file /home/ue4/.config/Epic/UnrealBuildTool/Trace.uba with size 305b
+LogConfig: Display: Loading IOS ini files took 0.26 seconds
+LogConfig: Display: Loading Mac ini files took 0.31 seconds
+LogConfig: Display: Loading Android ini files took 0.32 seconds
+LogConfig: Display: Loading VulkanPC ini files took 0.33 seconds
+LogConfig: Display: Loading Windows ini files took 0.43 seconds
+LogConfig: Display: Loading TVOS ini files took 0.47 seconds
+LogConfig: Display: Loading VisionOS ini files took 0.47 seconds
+LogConfig: Display: Loading Unix ini files took 0.51 seconds
+LogConfig: Display: Loading Linux ini files took 0.59 seconds
+LogConfig: Display: Loading LinuxArm64 ini files took 0.59 seconds
+Shutdown handler: initialize.
+LogAsyncCompilation: Display: MemorySharingInfo: UsedMemory=5159MiB, MaxMemoryAvailable=26327MiB
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Log is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.CSV is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Horde is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Log is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.CSV is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Horde is disabled for this application
+RenderDocPlugin: Display: RenderDoc plugin will not be loaded. Use '-AttachRenderDoc' on the cmd line or enable 'renderdoc.AutoAttach' in the plugin settings.
+LogStreaming: Display: AsyncLoading2 - Created: Async Loading Thread: false, Async Post Load: false, Multithreaded: false
+LogHAL: Display: Platform has ~ 10 GB [10426155008 / 17179869184 / 10], which maps to Default [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+LogCsvProfiler: Display: Metadata set : extradevelopmentmemorymb="0"
+LogObj: Display: Attempting to load config data for Default__DownlinkBandwidthManagerConfig before the Class has been constructed/registered/linked (likely during module loading or early startup). This will result in the load silently failing and should be fixed.
+LogTextureFormatASTC: Display: ASTCEnc version 5.0.1 library loaded
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatASTC
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatDXT
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatETC2
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatIntelISPCTexComp
+LogTextureFormatOodle: Display: Oodle Texture TFO init; latest sdk version = 2.9.16
+LogTextureFormatOodle: Display: Oodle Texture loading DLL: liboo2texlinux64.2.9.16.so
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatOodle
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatUncompressed
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64Server'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64Client'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_DXT'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_DXTServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_DXTClient'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ASTC'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ASTCServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ASTCClient'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ETC2'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ETC2Server'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ETC2Client'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_Multi'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_MultiServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_MultiClient'
+LogTargetPlatformManager: Display: Failed to SetupSDK for platform 'Android'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'Linux'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxEditor'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxClient'
+LogTargetPlatformManager: Display: Building Assets For Linux
+LogObj: Display: Attempting to load config data for Default__SlateThemeManager before the Class has been constructed/registered/linked (likely during module loading or early startup). This will result in the load silently failing and should be fixed.
+LogCsvProfiler: Display: Metadata set : verbatimrhiname="Null"
+LogCsvProfiler: Display: Metadata set : rhiname="Null"
+LogCsvProfiler: Display: Metadata set : rhifeaturelevel="SM5"
+LogCsvProfiler: Display: Metadata set : shaderplatform="VULKAN_SM5"
+LogCsvProfiler: Display: Metadata set : gpu=""
+LogCsvProfiler: Display: Metadata set : gpudriver=""
+LogDerivedDataCache: Display: ../../../Engine/DerivedDataCache/Compressed.ddp: Opened pak cache for reading. (1080 MiB)
+LogZenServiceInstance: Display: Launching zen utility '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zen service status'.
+LogZenServiceInstance: Display: Unable to find existing plugin information at '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zen_plugin_versions.json'. Creating a new plugin info file.
+LogZenServiceInstance: Display: Writing plugin version info to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zen_plugin_versions.json'
+LogZenServiceInstance: Display: Launching zen utility '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zen version --detailed --output-path "/var/tmp/zenversion019F5C6D66B8724CAC83F03F6685F1CE.tmp"'.
+LogZenServiceInstance: Display: Zen utility process completed successfully, version: '5.8.13-202605190912-linux-x86_64-release-094f62c2'
+LogZenServiceInstance: Display: Installing service version '5.8.13-202605190912-linux-x86_64-release-094f62c2', from '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zenserver' to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zenserver'
+LogZenServiceInstance: Display: Installed service version '5.8.13-202605190912-linux-x86_64-release-094f62c2' from '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zenserver' to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zenserver'
+LogZenServiceInstance: Display: Writing security configuration to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/security-config.json'
+LogZenServiceInstance: Display: Lock file '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data/.lock' is not active, nothing to do
+LogZenServiceInstance: Display: Migrating default data path from '/home/ue4/.config/Epic/Zen/Data' to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data'.  Old location will be deleted.
+LogZenServiceInstance: Display: Launching executable '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zenserver', working dir '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install', data dir '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data', args '--port 8558 --data-dir /home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data --http asio --gc-cache-duration-seconds 1209600 --gc-interval-seconds 21600 --gc-low-diskspace-threshold 2147483648 --cache-bucket-limit-overwrites --quiet --restrict-content-types --allow-external-oidctoken-exe=false --plugins-config "/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zen_plugins_v1.json" --security-config-path "/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/security-config.json" --owner-pid 421  --child-id Zen_421_Startup --detach'
+LogZenServiceInstance: Display: Unreal Zen Storage Server HTTP service at http://[::1]:8558 status: OK!.
+LogDerivedDataCache: Display: ZenLocal: Using ZenServer HTTP service at [::1] with namespace ue.ddc. Status: OK!.
+LogDerivedDataCache: Display: /home/ue4/.config/Epic/UnrealEngine/Common/DerivedDataCache: Performance: Latency=0.16ms. RandomReadSpeed=4686.40MBs, RandomWriteSpeed=722.54MBs. Assigned SpeedClass 'Local'
+LogUbaHorde: Display: UBA/Horde Configuration [Uba.Provider.Horde]: Not Enabled
+LogShaderCompilers: Display: No distributed shader compiler controller found
+LogShaderCompilers: Display: Using 15 local workers for shader compilation
+LogShaderCompilers: Display: Compiling shader autogen file: ../../../../../../work/ButterUp/Intermediate/ShaderAutogen/VULKAN_SM5/AutogenShaderHeaders.ush
+LogShaderCompilers: Display: Failed to delete old shader autogen file: ../../../../../../work/ButterUp/Intermediate/ShaderAutogen/VULKAN_SM5/AutogenShaderHeaders.ush
+LogShaderCompilers: Display: Shader autogen file written: ../../../../../../work/ButterUp/Intermediate/ShaderAutogen/VULKAN_SM5/AutogenShaderHeaders.ush
+LogEditorDomain: Display: EditorDomain is Disabled
+LogAssetRegistry: Display: AssetDataGatherer spent 0.000s loading caches from ../../../../../../work/ButterUp/Intermediate/CachedAssetRegistry.
+LogDeviceProfileManager: Display: Deviceprofile LinuxArm64Editor not found.
+LogDeviceProfileManager: Display: Deviceprofile LinuxArm64 not found.
+LogCsvProfiler: Display: Metadata set : deviceprofile="LinuxEditor"
+LogStreaming: Display: FlushAsyncLoading(1): 1 QueuedPackages, 0 AsyncPackages
+LogTextureEncodingSettings: Display: Texture Encode Speed: Final (cook).
+LogTextureEncodingSettings: Display: Oodle Texture Encode Speed settings: Fast: RDO Off Lambda=0, Effort=Normal Final: RDO Off Lambda=0, Effort=Normal
+LogTextureEncodingSettings: Display: Shared linear texture encoding: Disabled
+LogMeshReduction: Display: HLOD mesh reduction module (r.ProxyLODMeshReductionModule) set to "ProxyLODMeshReduction" which doesn't exist.
+LogMeshReduction: Display: Using QuadricMeshReduction for automatic static mesh reduction
+LogMeshReduction: Display: Using SkeletalMeshReduction for automatic skeletal mesh reduction
+LogMeshReduction: Display: No automatic mesh merging module available
+LogMeshReduction: Display: No distributed automatic mesh merging module available
+LogVirtualization: Display: VirtualizationSystem name found in ini file: None
+LogVirtualization: Display: FNullVirtualizationSystem mounted, virtualization will be disabled
+LogWorldPartition: Display: FWorldPartitionClassDescRegistry::Initialize started...
+LogWorldPartition: Display: FWorldPartitionClassDescRegistry::Initialize took 1.573 ms
+LogMetaSound: Display: MetaSound Page Target Initialized to 'Default'
+LogAudio: Display: Registering Engine Module Parameter Interfaces...
+LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+LogToolsetRegistry: Display: Registering Toolset ToolsetRegistry.AgentSkillToolset
+LogCsvProfiler: Display: Metadata set : largeworldcoordinates="1"
+LogCsvProfiler: Display: Metadata set : raytracing="0"
+LogCook: Display: CookProcessCount=1. CookMultiprocess is disabled and the cooker is running as a single process.
+LogCook: Display: CookSettings for Memory:
+	MemoryMaxUsedVirtual 0MiB
+	MemoryMaxUsedPhysical 0MiB
+	MemoryMinFreeVirtual 2048MiB
+	MemoryMinFreePhysical 2048MiB
+	MemoryTriggerGCAtPressureLevel None
+	SoftGCMemoryUseTrigger disabled
+	SoftGCTimeBudgetTrigger enabled (0.05 budget, 30s min period)
+LogCook: Display: SkipOnlyEditorOnly is enabled, unsolicited packages will not be cooked unless they are referenced from the cooked version of the instigator package.
+LogCook: Display: ---- Pre Content Initialisation: End ----
+LogCook: Display: ---- Post Content Initialisation: Start ----
+LogEditorDomain: Display: Cycle detected in parents of class /Script/RigVMDeveloper.RigVMUnitNode. Allow flags for editordomain and incremental cooking will be invalid.
+LogZenStore: Display: Establishing oplog 'ButterUp.45be9fcf/EditorDomain'
+LogZenStore: Display: Zen project 'ButterUp.45be9fcf' created
+LogZenStore: Display: Zen oplog 'ButterUp.45be9fcf/EditorDomain' created
+LogCook: Display: Waiting for Asset Registry
+LogAssetRegistry: Display: Starting OnFilesLoaded.Broadcast
+LogAssetRegistry: Display: Completed OnFilesLoaded.Broadcast: 0.013s
+LogAssetRegistry: Display: Asset registry cache written as 118.4 MiB to ../../../../../../work/ButterUp/Intermediate/CachedAssetRegistry/CachedAssetRegistry_*.ref
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles (PostWrite): 1 .ref files found, 1 referenced binaries
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles: 1 total binaries, 1 referenced (kept), 0 old-style pre-migration (kept), 0 orphans deleted, 0 orphans locked (kept)
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles (PostWrite): 1 .ref files found, 1 referenced binaries
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles: 1 total binaries, 1 referenced (kept), 0 old-style pre-migration (kept), 0 orphans deleted, 0 orphans locked (kept)
+LogCook: Display: INCREMENTAL COOK DEPENDENCIES: Enabled. Incremental Cook Dependencies are enabled in Editor.ini:[CookSettings]:LegacyIterative=false.
+LogZenStore: Display: Establishing oplog 'ButterUp.45be9fcf/Linux'
+LogZenStore: Display: Zen project 'ButterUp.45be9fcf' already exists
+LogStorageServerPlatformFile: Display: Found '/work/ButterUp/Saved/Cooked/Linux/ue.projectstore'
+LogStorageServerPlatformFile: Display: Using connection settings from ue.projectstore: HostAddrs='[::1]+172.17.0.2' and HostPort='8558'
+LogStorageServerPlatformFile: Display: Found '/work/ButterUp/Saved/Cooked/Linux/ue.projectstore'
+LogStorageServerPlatformFile: Display: Using password authentication from ue.projectstore
+LogStorageServerPlatformFile: Display: Using settings from ue.projectstore: ServerProject='ButterUp.45be9fcf' and ServerPlatform='Linux'
+LogStorageServerConnection: Display: Creating zen store connection to [::1]:8558 ("::1").
+LogStorageServerConnection: Display: Storage server returned HTTP 404 for /prj/ButterUp.45be9fcf/oplog/Linux: oplog Linux not found in project ButterUp.45be9fcf
+LogStorageServerConnection: Display: Creating zen store connection to 172.17.0.2:8558 ("172.17.0.2").
+LogStorageServerConnection: Display: Storage server returned HTTP 404 for /prj/ButterUp.45be9fcf/oplog/Linux: oplog Linux not found in project ButterUp.45be9fcf
+LogStorageServerConnection: Display: Creating zen store connection to hostname://d868144d27b9:8558 ("172.17.0.2").
+LogStorageServerConnection: Display: Storage server returned HTTP 404 for /prj/ButterUp.45be9fcf/oplog/Linux: oplog Linux not found in project ButterUp.45be9fcf
+LogStorageServerPlatformFile: Display: Failed to initialize connection to any of [ [::1], 172.17.0.2, hostname://d868144d27b9 ]
+LogCook: Display: CalculateGlobalDependenciesHash(Linux):
+LogCook: Display: 	FGuid CookIncrementalVersion = ffa12fdc-c822-1fe2-7757-627a12f1d3a7
+LogCook: Display: 	[Editor]:CookSettings.ProjectCookIncrementalVersion = 00000000-0000-0000-0000-000000000000
+LogCook: Display: 	[Engine]:Core.System.CanStripEditorOnlyExportsAndImports = True
+LogCook: Display: 	[Engine]:Core.System.CanSkipEditorReferencedPackagesWhenCooking = False
+LogCook: Display: 	CanUseUnversionedPropertySerialization = True
+LogCook: Display: 	[Editor]:CookSettings.AutomaticOptionalInclusionAssetType = /Script/Niagara.NiagaraScript, /Script/Niagara.NiagaraEmitter, /Script/Niagara.NiagaraSystem, /Script/NiagaraEditor.NiagaraParameterDefinitions, /Script/Niagara.NiagaraEffectType, /Script/Niagara.NiagaraValidationRuleSet, /Script/OptimusCore.OptimusDeformer
+LogCook: Display: 	IsCookFlagSet(ECookInitializationFlags::Unversioned) = True
+LogCook: Display: 	FCoreRedirects::AppendHashOfGlobalRedirects = 585cca26a3cdc75e6429aaebf6e44e83b7ba1a57df64d1368584d8f9a0f23d24
+LogCook: Display: 	GlobalDependenciesHash(Linux) = 347b3354c8d2b1518815ea05de341f094084f0edd0baa356ea216265c3627def
+LogCook: Display: FULL COOK: Incremental Cooks are disabled by default in Editor.ini:[CookSettings]:CookIncrementalDefaultIncremental=false, and commandline did not specify -forcerecook=false. Deleting previously cooked packages for platform Linux and recooking all packages discovered in the current cook.
+LogZenStore: Display: Deleting oplog 'ButterUp.45be9fcf/Linux' if it exists
+LogZenStoreWriter: Display: Deleting /work/ButterUp/Saved/Cooked/Linux/...
+LogZenStore: Display: Zen oplog 'ButterUp.45be9fcf/Linux' created
+LogCook: Display: Sandbox cleanup took 0.003 seconds for platforms Linux
+LogCook: Display: Compiling global changed shaders for platform 'Linux'
+LogShaderLibrary: Display:
+LogShaderLibrary: Display: Shader Library 'Global' (SF_VULKAN_SM5-VULKAN_SM5) Stats:
+LogShaderLibrary: Display: =================
+LogShaderLibrary: Display: Assets: 1, Unique Shadermaps: 388 (38800.00%)
+LogShaderLibrary: Display: Total Shaders: 5613, Unique Shaders: 5597 (99.71%)
+LogShaderLibrary: Display: Total Shader Size: 36.29mb, Unique Shaders Size: 36.28mb (99.97%)
+LogShaderLibrary: Display: === Extended info:
+LogShaderLibrary: Display: Minimum number of shaders in shadermap: 1
+LogShaderLibrary: Display: Median number of shaders in shadermap: 3
+LogShaderLibrary: Display: Maximum number of shaders in shadermap: 530
+LogShaderLibrary: Display: Number of shadermaps referencing top 10 most shared shaders:
+LogShaderLibrary: Display:     5, 3, 3, 2, 2, 2, 2, 2, 2, 2
+LogShaderLibrary: Display: Unique shaders itemization (sorted by compressed size):
+LogShaderLibrary: Display: SF_Compute: 3710 shaders (66.29%), compressed size: 22.96 MB (6.34 KB avg per shader), uncompressed size: 86.82 MB (23.96 KB avg per shader)
+LogShaderLibrary: Display: SF_Pixel: 1762 shaders (31.48%), compressed size: 13.15 MB (7.64 KB avg per shader), uncompressed size: 50.85 MB (29.55 KB avg per shader)
+LogShaderLibrary: Display: SF_Vertex: 123 shaders (2.20%), compressed size: 0.16 MB (1.35 KB avg per shader), uncompressed size: 0.39 MB (3.28 KB avg per shader)
+LogShaderLibrary: Display: SF_Geometry: 2 shaders (0.04%), compressed size: 0.00 MB (0.72 KB avg per shader), uncompressed size: 0.00 MB (1.80 KB avg per shader)
+LogShaderLibrary: Display: Textual dump saved to '../../../../../../work/ButterUp/Saved/Shaders/SF_VULKAN_SM5-VULKAN_SM5/ShaderDebug-Global-SF_VULKAN_SM5-VULKAN_SM5/Dump.txt'
+LogShaderLibrary: Display: =================
+LogCook: Display: Discovering localized assets for cultures: en
+LogCook: Display: Found 0 localized assets
+LogCook: Display: ---- Post Content Initialisation: End ----
+LogCook: Display: Cooked packages 0 Packages Remain 449 Total 449
+LogCook: Display: Cook Diagnostics: OpenFileHandles=0, VirtualMemory=8814MiB, VirtualMemoryAvailable=37259MiB
+LogCook: Display: Garbage collection triggered (Soft). Triggered by conditions:
+  CookSettings.SoftGCTimeTrigger: Periodic triggering of SoftGC: No duration data.
+LogCookCommandlet: Display: GarbageCollection... (Periodic GC)
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_ClearCoat_Mask_DS.MI_ClearCoat_Mask_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: c07044dfbb9cd4df2e3036d24d8e316e0fa091e3), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_ClearCoat_Opaque_DS.MI_ClearCoat_Opaque_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: b01596019ec77a67e3c6610546841fd93bcc636a), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_ClearCoat_Blend.MI_ClearCoat_Blend in VULKAN_SM5, Default, SM5, Game (DDC key hash: 57e5d64f29d3d4e2f4cf79261de55f501c7e5bdb), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/M_ClearCoat.M_ClearCoat in VULKAN_SM5, Default, SM5, Game (DDC key hash: d907a45e9dd8f7a46522cc9a82384b6f3a77a76f), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_ClearCoat_Mask.MI_ClearCoat_Mask in VULKAN_SM5, Default, SM5, Game (DDC key hash: 2c9150c7e56a855d84eb92541aef3d75d62602db), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Sheen_Blend_DS.MI_Sheen_Blend_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 192104a81de690c39bb2f4f6e30393473b7be626), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Sheen_Mask_DS.MI_Sheen_Mask_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: c26a07a698168e877adc57e984ad518f57022f89), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Sheen_Opaque_DS.MI_Sheen_Opaque_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 227687d1750ff1b5d795900f09ef1572a161f840), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Sheen_Blend.MI_Sheen_Blend in VULKAN_SM5, Default, SM5, Game (DDC key hash: e8f85456809791ca4887751a8a58493c4e823fc5), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Sheen_Mask.MI_Sheen_Mask in VULKAN_SM5, Default, SM5, Game (DDC key hash: 916e2a644fc5e7b63fc429f9b4422bd93dc7b7c1), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_ClearCoat_Blend_DS.MI_ClearCoat_Blend_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: f2d3b5fc26f5bce47eba486adb8ad687c293bb6c), compiling.
+LogCook: Display: Cooked packages 54 Packages Remain 448 Total 502
+LogStaticMesh: Display: Waiting for static meshes to be ready 0/45 (/ControlRig/Controls/ControlRig_Arrow4_solid) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 5/45 (/ControlRig/Controls/ControlRig_Arrow2_3mm) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 7/45 (/ControlRig/Controls/ControlRig_Sphere_solid) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 16/45 (/ControlRig/Controls/ControlRig_Octagon_1mm) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 18/45 (/ControlRig/Controls/ControlRig_Hexagon_1mm) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 19/45 (/ControlRig/Controls/ControlRig_HalfCircle_solid) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 22/45 (/ControlRig/Controls/ControlRig_HalfCircle_1mm) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 31/45 (/ControlRig/Controls/ControlRig_Arrow_solid) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 37/45 (/ControlRig/Controls/ControlRig_RoundedTriangle_3mm) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 40/45 (/ControlRig/Controls/ControlRig_RoundedSquare_3mm) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 41/45 (/ControlRig/Controls/ControlRig_Sphere_1mm) ...
+LogStaticMesh: Display: Waiting for static meshes to be ready 44/45 (/ControlRig/Controls/ControlRig_Wedge_3mm) ...
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/Substrate/M_GLTF.M_GLTF in VULKAN_SM5, Default, SM5, Game (DDC key hash: 882262cbce966355045dd96668ae0e976fa95779), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Unlit_Blend_DS.MI_Unlit_Blend_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 450ad6b0c9d354e7d836c528c0536bad14f61cdb), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Unlit_Mask_DS.MI_Unlit_Mask_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 9cb06b5c9717e6028caa3c9cd3c6cf5d9b14a1a9), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Unlit_Opaque_DS.MI_Unlit_Opaque_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: ecb945d0903d93cfc65f844783a97ffab090e01f), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Unlit_Blend.MI_Unlit_Blend in VULKAN_SM5, Default, SM5, Game (DDC key hash: 04d93cf4d52c06cbdac798db0da3642265091b50), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Unlit_Mask.MI_Unlit_Mask in VULKAN_SM5, Default, SM5, Game (DDC key hash: b887c63e44fd44c335e6361ce58eccda9f6b09f3), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/M_Unlit.M_Unlit in VULKAN_SM5, Default, SM5, Game (DDC key hash: f83ae6743deb0a3822ec5a783ea7d06d7c9dc86a), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/SelectBrushMaterial_SelectedRegion.SelectBrushMaterial_SelectedRegion in VULKAN_SM5, Default, SM5, Game (DDC key hash: 45d3df4c73cc95d398c2afb8316bf8d4da720d73), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/PreviewShadowIndicatorMaterial.PreviewShadowIndicatorMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: aa2ec254cd3201097bb4c4afb48c7310a8fe4d30), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/Widget3DPassThrough.Widget3DPassThrough in VULKAN_SM5, Default, SM5, Game (DDC key hash: 019b3c69984925190d0bedd83db4cdc43a816a39), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/DefaultTextMaterialOpaque.DefaultTextMaterialOpaque in VULKAN_SM5, Default, SM5, Game (DDC key hash: ce8a7d6539339ad1592f0a352a357a58d2fccc16), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 2c6c15ba68fa916ed6d88a3f05c61006c22eaeb0), compiling. Is special engine material.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/DefaultMaterial.DefaultMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 650ee6bbe7940be25edf807ba81193ec43df738a), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/DefaultDeferredDecalMaterial.DefaultDeferredDecalMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 715bbcea1432f83113871faa590bcf7fb19e490a), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/DefaultPostProcessMaterial.DefaultPostProcessMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: db5bcbdb822e4e4061c1db5d162f25de783062bf), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/M_Default.M_Default in VULKAN_SM5, Default, SM5, Game (DDC key hash: 3abcc677e3f79f4765ecc0a7bc9daa3a0c300154), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/M_Sheen.M_Sheen in VULKAN_SM5, Default, SM5, Game (DDC key hash: 84ce742411e362cb068d137522f6ad9e6622f0ed), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Transmission_DS.MI_Transmission_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: ea07e4fd1fba5554f4a3a848225043f7c4c5050d), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Default_Blend_DS.MI_Default_Blend_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 03318c1912368c5a04435d7250c7df35dea4c805), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Default_Mask_DS.MI_Default_Mask_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 81e0448bc06c2c2fdf7057df1705130856a9d4a7), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Default_Opaque_DS.MI_Default_Opaque_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: f39804abfb7ee284800d3a776d91c3d2905e9eda), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Default_Blend.MI_Default_Blend in VULKAN_SM5, Default, SM5, Game (DDC key hash: e30e6bf028193baf4b84796e4d0a05c51fc35eb1), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_Default_Mask.MI_Default_Mask in VULKAN_SM5, Default, SM5, Game (DDC key hash: b6fb58ca87f7ca1f706a67d3a1628aae1147c2ab), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/M_Transmission.M_Transmission in VULKAN_SM5, Default, SM5, Game (DDC key hash: 5c868a67a4e71f6ef682bb97e7e6b295672d2f9a), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/M_SpecularGlossiness.M_SpecularGlossiness in VULKAN_SM5, Default, SM5, Game (DDC key hash: ed2e43146fc1799e533f855a267e2d6907838c88), compiling.
+LogMaterial: Display: Missing cached shadermap for /Landmass/Landscape/BlueprintBrushes/Materials/Internal/BrushBounds.BrushBounds in VULKAN_SM5, Default, SM5, Game (DDC key hash: 4b10fa3b56cdc96f41146c1c3dd57ef5cd1bb7c2), compiling.
+LogMaterial: Display: Missing cached shadermap for /Paper2D/OpaqueUnlitSpriteMaterial.OpaqueUnlitSpriteMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 0c1dd5ab3bafe05645b123798c8ed33f0bd0dafd), compiling.
+LogMaterial: Display: Missing cached shadermap for /SpeedTreeImporter/SpeedTree9/SpeedTreeMaster.SpeedTreeMaster in VULKAN_SM5, Default, SM5, Game (DDC key hash: 7381743180344ea0ed9f63268ba2d3e616b5379d), compiling.
+LogMaterial: Display: Missing cached shadermap for /SpeedTreeImporter/SpeedTree9/SpeedTreeBillboardMaster.SpeedTreeBillboardMaster in VULKAN_SM5, Default, SM5, Game (DDC key hash: 474615b67b93978b77b6c806a1e142ca979415d3), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/Widget3DPassThrough_Translucent_OneSided.Widget3DPassThrough_Translucent_OneSided in VULKAN_SM5, Default, SM5, Game (DDC key hash: 019b3c69984925190d0bedd83db4cdc43a816a39), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/Widget3DPassThrough_Opaque_OneSided.Widget3DPassThrough_Opaque_OneSided in VULKAN_SM5, Default, SM5, Game (DDC key hash: b164d8b088fe4905be23ee80aad1ad97155fd876), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/Widget3DPassThrough_Masked_OneSided.Widget3DPassThrough_Masked_OneSided in VULKAN_SM5, Default, SM5, Game (DDC key hash: b6a22940883f2c182bb9f7d0bc106ff25a7e3647), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/LandscapeLayerUsageMaterial.LandscapeLayerUsageMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 277b5258de5048886323298ba534ed08bf2c8ac5), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/Dataflow/DataflowSelection.DataflowSelection in VULKAN_SM5, Default, SM5, Game (DDC key hash: b6de29ec0aecabb22b19bcdc4ccfb11329c65789), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/Widget3DPassThrough_Translucent.Widget3DPassThrough_Translucent in VULKAN_SM5, Default, SM5, Game (DDC key hash: afbef0f29b85f0d8c6dce7f41b5ea3b8c0e9fcce), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/Widget3DPassThrough_Opaque.Widget3DPassThrough_Opaque in VULKAN_SM5, Default, SM5, Game (DDC key hash: cfdfc6a1aa6628e93d84fb6a7d21f13a2b2703e8), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/Widget3DPassThrough_Masked.Widget3DPassThrough_Masked in VULKAN_SM5, Default, SM5, Game (DDC key hash: b1713d2d189c30b08577c781b0f2ad3b0b8470c3), compiling.
+LogMaterial: Display: Missing cached shadermap for /Landmass/Landscape/BlueprintBrushes/Materials/Sprite/M_BrushSprite_01.M_BrushSprite_01 in VULKAN_SM5, Default, SM5, Game (DDC key hash: e4b73747f262ef0d7e7cba697c6bf88d69d87eb9), compiling.
+LogMaterial: Display: Missing cached shadermap for /MeshModelingToolsetExp/Materials/PointSetOverlaidComponentMaterial.PointSetOverlaidComponentMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: cb57581106aa6bac7a54c6b23a3540541c38139a), compiling.
+LogMaterial: Display: Missing cached shadermap for /MeshModelingToolsetExp/Materials/LineSetOverlaidComponentMaterial.LineSetOverlaidComponentMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: d3c627269bb06fb72819d380b6100796c3d3acdd), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/MaskBrushMaterial_MaskedRegion.MaskBrushMaterial_MaskedRegion in VULKAN_SM5, Default, SM5, Game (DDC key hash: ba296c9c351be13abe29ed2669a5cec87fac9895), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/VREditor/SnapGrid/SnapGridMaterial.SnapGridMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: d38e66af45f3d3001a8089a45331cd65781d33aa), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_SpecularGlossiness_Blend_DS.MI_SpecularGlossiness_Blend_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 849e0891c5bd6939b174eb0783b464b7b24848c3), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_SpecularGlossiness_Mask_DS.MI_SpecularGlossiness_Mask_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 7a60a0c950adfb008f9ba1d058cc8327c17e2697), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_SpecularGlossiness_Opaque_DS.MI_SpecularGlossiness_Opaque_DS in VULKAN_SM5, Default, SM5, Game (DDC key hash: 5e33af6a46bfa4217b0e99eff50442ac93979a2a), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_SpecularGlossiness_Blend.MI_SpecularGlossiness_Blend in VULKAN_SM5, Default, SM5, Game (DDC key hash: d0f3158ba5ac326c11f53db75bedbcdabd41f53d), compiling.
+LogMaterial: Display: Missing cached shadermap for /InterchangeAssets/gltf/MaterialInstances/MI_SpecularGlossiness_Mask.MI_SpecularGlossiness_Mask in VULKAN_SM5, Default, SM5, Game (DDC key hash: 9f6120903be6665803ee111259f79fbc27bae7e9), compiling.
+LogCook: Display: Cooked packages 169 Packages Remain 333 Total 502
+LogTextureFormatOodle: Display: Oodle Texture loading DLL: liboo2texlinux64.2.9.11.so
+LogTextureFormatOodle: Display: Oodle Texture loading DLL: liboo2texlinux64.2.9.12.so
+LogTextureFormatOodle: Display: Oodle Texture loading DLL: liboo2texlinux64.2.9.15.so
+LogDerivedDataCache: Display: ZenLocal: Cache put found non-deterministic record for MaterialShaderMap/019b3c69984925190d0bedd83db4cdc43a816a39 from '/Engine/EngineMaterials/Widget3DPassThrough_Translucent_OneSided [VULKAN_SM5, SM5, Default]'
+LogCook: Display: Cooked packages 279 Packages Remain 224 Total 503
+LogTextureFormatOodle: Display: Oodle Texture loading DLL: liboo2texlinux64.2.9.13.so
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineDebugMaterials/M_VolumeRenderSphereTracePP.M_VolumeRenderSphereTracePP in VULKAN_SM5, Default, SM5, Game (DDC key hash: 83ba95e325550341d1662fd0503aade31e2e0ec8), compiling.
+LogMaterial: Display: Missing cached shadermap for /HairStrands/Materials/HairDebugMaterial.HairDebugMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 63c4c3c451beb9e94ccad99dd1b49ea3312a6467), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/VREditor/TransformGizmo/TransformGizmoMaterial.TransformGizmoMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 42369ef2bab08fc978da3e913629f1b6a75da026), compiling.
+LogMaterial: Display: Missing cached shadermap for /ControlRig/M_Manip.M_Manip in VULKAN_SM5, Default, SM5, Game (DDC key hash: fe4bd7cb7ca7b1e6dd9f4a5bb74ea17071a2e376), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/PhAT_JointLimitMaterial.PhAT_JointLimitMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 19b3175641549b4d7ef1d4bcfa26ba1fc568bf93), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/Dataflow/M_Dataflow_CheckerBoard.M_Dataflow_CheckerBoard in VULKAN_SM5, Default, SM5, Game (DDC key hash: 80e26a846eba6d6fbde7c8b6ceb5993da16a9ee5), compiling.
+LogMaterial: Display: Missing cached shadermap for /Paper2D/DefaultSpriteMaterial.DefaultSpriteMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 0d66a8083fac990a34986b7e54169e417174cf3a), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/LayerVisMaterial.LayerVisMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 2d9f26580b9428469cc21901500d82df1861cf51), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/SelectBrushMaterial.SelectBrushMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: a29b3c2176aec03470e0c2eb8baf1e82d36c99b6), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/ColorMaskBrushMaterial.ColorMaskBrushMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 9b81b504cd170efdda8e5f693ff1163466da4ddb), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/LandscapeDirtyMaterial.LandscapeDirtyMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: a7f51f0dc7ff1a7bd43558daf5c2f73f9328443e), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/EmissiveMeshMaterial.EmissiveMeshMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 4d4d9155d19bad6c5a05ff7b77c9eaa89439d80d), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/M_InvalidLightmapSettings.M_InvalidLightmapSettings in VULKAN_SM5, Default, SM5, Game (DDC key hash: 50a1cee5a49780fd6050dbcd8c92db65b2cb716b), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/FlattenMaterial.FlattenMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: ed9a3360b573f39c8e91f9f77286f8cf74c2f224), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/FlattenMaterial_VT.FlattenMaterial_VT in VULKAN_SM5, Default, SM5, Game (DDC key hash: e12d1180117a40efd02fc518a07c4dfda72e7dc9), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/FlattenMaterial_WS_Normal_VT.FlattenMaterial_WS_Normal_VT in VULKAN_SM5, Default, SM5, Game (DDC key hash: 2837a7585a062474d1568d9b905c63d796e5d14f), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/PPM_DefaultCalibrationGrayscale.PPM_DefaultCalibrationGrayscale in VULKAN_SM5, Default, SM5, Game (DDC key hash: f61a6a85a425de44739d3cfb27ad2b29ab92305c), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/PPM_DefaultCalibrationColor.PPM_DefaultCalibrationColor in VULKAN_SM5, Default, SM5, Game (DDC key hash: 0fbffc40a6d306f03149d614cbf0be499f972ed5), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/DefaultLightFunctionMaterial.DefaultLightFunctionMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: a330758d714963eb30869d18034b4e328f5e9431), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/WidgetVertexColorMaterial.WidgetVertexColorMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 071b6d73d051224747d21d6fa6ce037c986000a2), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/Camera/CineMat.CineMat in VULKAN_SM5, Default, SM5, Game (DDC key hash: 9e965a47d6a685bdeb71ec0fcf77ce1608cc17d9), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorLandscapeResources/SplineEditorMeshMat.SplineEditorMeshMat in VULKAN_SM5, Default, SM5, Game (DDC key hash: 745d1f34ac8216dd7c435f5b67b5b9f6045e8081), compiling.
+LogMaterial: Display: Missing cached shadermap for /HairStrands/Materials/HairDefaultMaterial.HairDefaultMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: b88c3db6b47915a78e81b35043bd5fb40922286a), compiling.
+LogMaterial: Display: Missing cached shadermap for /HairStrands/Materials/HairCardsDefaultMaterial.HairCardsDefaultMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: c6f97d85efb4f816b562e19e84bcd6c9f35bbdc1), compiling.
+LogMaterial: Display: Missing cached shadermap for /HairStrands/Materials/HairMeshesDefaultMaterial.HairMeshesDefaultMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 354c8179a14486c8a6b6fc1ffa6314f739effaef), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineDebugMaterials/M_SimpleUnlitTranslucent.M_SimpleUnlitTranslucent in VULKAN_SM5, Default, SM5, Game (DDC key hash: 0989a27519b5f46023384137ca73ab5eccb36e7d), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/VREditor/TransformGizmo/TranslucentTransformGizmoMaterial.TranslucentTransformGizmoMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: ca2bef8d156688181276e37114f506c564caef0a), compiling.
+LogMaterial: Display: Missing cached shadermap for /ControlRig/Controls/ControlRigXRayMaterial.ControlRigXRayMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: f3dae53b4c291789e93ba900c97649bb905c8af1), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: c39c1b18e57ad524f5be875da03e02a599051c86), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/VREditor/TransformGizmo/Main.Main in VULKAN_SM5, Default, SM5, Game (DDC key hash: 2528398bab0b6600a4fdf2f04aad535e3f3d4184), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/VREditor/TransformGizmo/Xray.Xray in VULKAN_SM5, Default, SM5, Game (DDC key hash: b95f821c113a5d581f64083cf8964ef6f91e2033), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/Dataflow/DataflowVertexMaterial.DataflowVertexMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: ecf94a186d81b272cae616777a31f3bda3b40bf1), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/Dataflow/DataflowTwoSidedVertexMaterial.DataflowTwoSidedVertexMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 041496d8b48964ca1e0e5242cda31ccab3b9b9c1), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/Dataflow/DataflowTwoSidedVertexMaterial.SculptMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 7b70c6d403a8916a9241fbfce7fa5252bc172adf), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/NaniteHiddenSectionMaterial.NaniteHiddenSectionMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 32be21dc4f1683f4812461f8dcf6b6c50035bcc7), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/RemoveSurfaceMaterial.RemoveSurfaceMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: a14c868bd97954d69f198dfc7feb43fedf754d99), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineDebugMaterials/DebugMeshMaterial.DebugMeshMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: fc1ccb0b4aca348c43d090d36759dafd7e802d74), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineMaterials/GizmoMaterial.GizmoMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 08135bf2a05215f0dded074f2648a2768d088ede), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/PhAT_UnselectedMaterial.PhAT_UnselectedMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 33126f8e7037f51ca580743b7eb00e5cf5c8cc36), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EditorMaterials/PhAT_NoCollisionMaterial.PhAT_NoCollisionMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: 767c7fcb61bc441ccb15a6a3e45e935709c0d66c), compiling.
+LogCook: Display: Cooked packages 437 Packages Remain 66 Total 503
+LogDerivedDataCache: Display: /home/ue4/.config/Epic/UnrealEngine/Common/DerivedDataCache: Cache put found non-deterministic record for MaterialShaderMap/019b3c69984925190d0bedd83db4cdc43a816a39 from '/Engine/EngineMaterials/Widget3DPassThrough_Translucent_OneSided [VULKAN_SM5, SM5, Default]'
+LogMaterial: Display: Missing cached shadermap for /Game/Materials/M_PatMelt.M_PatMelt in VULKAN_SM5, Default, SM5, Game (DDC key hash: fc596c311c661c8a75662a48c2ac21db5138def0), compiling.
+LogMaterial: Display: Missing cached shadermap for /Engine/EngineDebugMaterials/DebugEditorMaterial.DebugEditorMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: ea8a62e2a01de49aa311a6c6614451b89db787f8), compiling.
+LogCook: Display: Cooked packages 489 Packages Remain 14 Total 503
+LogMaterial: Display: Missing cached shadermap for /ControlRig/Controls/ControlRigGizmoMaterial.ControlRigGizmoMaterial in VULKAN_SM5, Default, SM5, Game (DDC key hash: cb429b0f49757144ed5623b4e3da4a4fa7b1ab2a), compiling.
+LogCook: Display: Cooked packages 502 Packages Remain 1 Total 503
+LogCook: Display: Cooked packages 503 Packages Remain 0 Total 503
+LogCook: Display: Cook Diagnostics: OpenFileHandles=0, VirtualMemory=11167MiB, VirtualMemoryAvailable=36997MiB
+LogCook: Display: ---- Finalisation: Start ----
+LogShaderCompilers: Display: ================================================
+LogShaderCompilers: Display: === FShaderJobCache stats ===
+LogShaderCompilers: Display: Total job queries 3254, among them cache hits 382 (11.74%), DDC hits 2311 (71.02%), Duplicates 556 (17.09%)
+LogShaderCompilers: Display: Tracking 2316 distinct input hashes that result in 1314 distinct outputs (56.74%)
+LogShaderCompilers: Display: RAM used: 7.75 MiB of 512.00 MiB budget. Usage: 1.51%
+LogShaderCompilers: Display: === Shader Compilation stats ===
+LogShaderCompilers: Display: Shaders Compiled: 5
+LogShaderCompilers: Display: Jobs assigned 5, completed 5 (100%)
+LogShaderCompilers: Display: Time job spent in pending queue: average 0.06 s, longest 0.07 s
+LogShaderCompilers: Display: Job execution time: average 1.93 s, max 2.01 s
+LogShaderCompilers: Display: Job life time (pending + execution): average 2.00 s, max 2.08
+LogShaderCompilers: Display: Shader code size: total 77.274414 KiB, numShaders 5, average 15.454102 KiB, min 3.68457 KiB, max 20.432617 KiB
+LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 2.08 s
+LogShaderCompilers: Display: Jobs were issued in 5 batches (only local compilation was used), average 1.00 jobs/batch
+LogShaderCompilers: Display: Average processing rate: 2.40 jobs/sec
+LogShaderCompilers: Display: Total thread time: 2.398 s
+LogShaderCompilers: Display: Total thread preprocess time: 43.501 s
+LogShaderCompilers: Display: Percentage time preprocessing: 1813.87%
+LogShaderCompilers: Display: Effective parallelization: 1.15 (times faster than compiling all shaders on one thread). Compare with number of workers: 14 - 0.082303
+LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+LogShaderCompilers: Display:               TBasePassPSFCachedVolumeIndirectLightingPolicy (compiled    1 times, average 0.52 sec, max 0.52 sec, min 0.52 sec)
+LogShaderCompilers: Display:                TBasePassPSFCachedPointIndirectLightingPolicy (compiled    1 times, average 0.51 sec, max 0.51 sec, min 0.51 sec)
+LogShaderCompilers: Display:      TBasePassPSFPrecomputedVolumetricLightmapLightingPolicy (compiled    1 times, average 0.50 sec, max 0.50 sec, min 0.50 sec)
+LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy (compiled    1 times, average 0.48 sec, max 0.48 sec, min 0.48 sec)
+LogShaderCompilers: Display:                                                 FLumenCardPS (compiled    1 times, average 0.39 sec, max 0.39 sec, min 0.39 sec)
+LogShaderCompilers: Display: Top 5 shader types by total compile time:
+LogShaderCompilers: Display:               TBasePassPSFCachedVolumeIndirectLightingPolicy - 21.48% of total time (compiled    1 times, average 0.52 sec, max 0.52 sec, min 0.52 sec)
+LogShaderCompilers: Display:                TBasePassPSFCachedPointIndirectLightingPolicy - 21.47% of total time (compiled    1 times, average 0.51 sec, max 0.51 sec, min 0.51 sec)
+LogShaderCompilers: Display:      TBasePassPSFPrecomputedVolumetricLightmapLightingPolicy - 20.81% of total time (compiled    1 times, average 0.50 sec, max 0.50 sec, min 0.50 sec)
+LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy - 19.92% of total time (compiled    1 times, average 0.48 sec, max 0.48 sec, min 0.48 sec)
+LogShaderCompilers: Display:                                                 FLumenCardPS - 16.32% of total time (compiled    1 times, average 0.39 sec, max 0.39 sec, min 0.39 sec)
+LogShaderCompilers: Display: === Material stats ===
+LogShaderCompilers: Display: Materials Cooked:        114
+LogShaderCompilers: Display: Materials Translated:    101
+LogShaderCompilers: Display: Material Total Translate Time: 0.24 s
+LogShaderCompilers: Display: Material Translation Only: 0.20 s (81%)
+LogShaderCompilers: Display: Material DDC Serialization Only: 0.00 s (0%)
+LogShaderCompilers: Display: Material Cache Hits: 0 (0%)
+LogShaderCompilers: Display: ================================================
+LogCook: Display: CookArtifact '/work/ButterUp/Saved/Cooked/Linux/ButterUp/Metadata/ValidationCookArtifact.json' saved.
+LogAssetRegistryGenerator: Display: Saving asset registry v24.
+LogAssetRegistryGenerator: Display: Generated development asset registry /work/ButterUp/Saved/Cooked/Linux/ButterUp/Metadata/DevelopmentAssetRegistry.bin num assets 505, size is 399.75kb, XxHash64[LE] = 0x7F9BFDE129CEF3D, waited on hash 0.00 seconds
+LogAssetRegistryGenerator: Display: Generated asset registry num assets 498, size is 141.16kb
+LogShaderLibrary: Display:
+LogShaderLibrary: Display: Shader Library 'ButterUp' (SF_VULKAN_SM5-VULKAN_SM5) Stats:
+LogShaderLibrary: Display: =================
+LogShaderLibrary: Display: Assets: 102, Unique Shadermaps: 102 (100.00%)
+LogShaderLibrary: Display: Total Shaders: 2133, Unique Shaders: 1376 (64.51%)
+LogShaderLibrary: Display: Total Shader Size: 9.66mb, Unique Shaders Size: 6.81mb (70.51%)
+LogShaderLibrary: Display: === Extended info:
+LogShaderLibrary: Display: Minimum number of shaders in shadermap: 1
+LogShaderLibrary: Display: Median number of shaders in shadermap: 13
+LogShaderLibrary: Display: Maximum number of shaders in shadermap: 418
+LogShaderLibrary: Display: Number of shadermaps referencing top 10 most shared shaders:
+LogShaderLibrary: Display:     26, 23, 22, 18, 17, 17, 16, 16, 15, 14
+LogShaderLibrary: Display: Unique shaders itemization (sorted by compressed size):
+LogShaderLibrary: Display: SF_Pixel: 785 shaders (57.05%), compressed size: 4.19 MB (5.46 KB avg per shader), uncompressed size: 14.99 MB (19.55 KB avg per shader)
+LogShaderLibrary: Display: SF_Vertex: 498 shaders (36.19%), compressed size: 2.19 MB (4.50 KB avg per shader), uncompressed size: 7.23 MB (14.86 KB avg per shader)
+LogShaderLibrary: Display: SF_Compute: 93 shaders (6.76%), compressed size: 0.44 MB (4.83 KB avg per shader), uncompressed size: 1.48 MB (16.28 KB avg per shader)
+LogShaderLibrary: Display: Textual dump saved to '../../../../../../work/ButterUp/Saved/Shaders/SF_VULKAN_SM5-VULKAN_SM5/ShaderDebug-ButterUp-SF_VULKAN_SM5-VULKAN_SM5/Dump.txt'
+LogShaderLibrary: Display: =================
+LogCook: Display: Dependent plugin "UAF" referenced by "IK Rig" wasn't found in enabled plugins list when creating cook metadata file... skipping
+LogCook: Display: Dependent plugin "UAFAnimGraph" referenced by "IK Rig" wasn't found in enabled plugins list when creating cook metadata file... skipping
+LogCook: Display: Dependent plugin "SteamShared" referenced by "EOS Shared" wasn't found in enabled plugins list when creating cook metadata file... skipping
+LogCook: Display: Finalize package store(s)...
+LogZenStoreWriter: Display: Flushing...
+LogZenStoreWriter: Display: Saving Zen filesystem manifest '/work/ButterUp/Saved/Cooked/Linux/ButterUp/Metadata/zenfs.manifest'
+LogZenStoreWriter: Display: Output:	49124 Public runtime script objects
+LogCook: Display: Cook by the book total time in tick 14.275208s total time 18.440739
+LogCook: Display: Peak Used virtual 11244 MiB Peak Used physical 3033 MiB
+LogCook: Display: Packages Cooked: 496, Packages Incrementally Skipped: 0, Packages Skipped by Platform: 7, Total Packages: 503
+LogCookStats: Display: Hierarchy Timer Information:
+LogCookStats: Display:   Root: 0.000s (0)
+LogCookStats: Display:     CleanSandbox: 0.003s (1)
+LogCookStats: Display:     CollectFilesToCook: 0.003s (1)
+LogCookStats: Display:       CookModificationDelegate: 0.000s (1)
+LogCookStats: Display:     GenerateLongPackageName: 0.000s (1)
+LogCookStats: Display:     TickMainCookLoop: 14.275s (2)
+LogCookStats: Display:       PumpPollables: 0.016s (7)
+LogCookStats: Display:       PumpRequests: 0.013s (16)
+LogCookStats: Display:       LoadPackageForCooking: 2.576s (3611)
+LogCookStats: Display:       ValidateSourcePackage: 0.000s (503)
+LogCookStats: Display:       SavingPackages: 5.564s (682)
+LogCookStats: Display:         PollPendingCookedPlatformDatas: 1.030s (26614)
+LogCookStats: Display:         PrepareSave: 0.405s (26213)
+LogCookStats: Display:         PrecachePlatformDataForNextPackage: 0.306s (502)
+LogCookStats: Display:           PrepareSave: 0.306s (710)
+LogCookStats: Display:         SaveCookedPackage: 3.738s (503)
+LogCookStats: Display:           GEditorSavePackage: 3.561s (503)
+LogCookStats: Display:             VerifyCanCookPackage: 0.004s (496)
+LogCookStats: Display:           TargetDomainDependencies: 0.109s (503)
+LogCookStats: Display:         ClearAllCachedCookedPlatformData: 0.014s (503)
+LogCookStats: Display:       PostLoadPackageFixup: 0.000s (2)
+LogCookStats: Display:       WaitForAsync: 5.900s (589)
+LogCookStats: Display:     CookByTheBookFinished: 1.012s (1)
+LogCookStats: Display:       SavingCurrentIniSettings: 0.026s (1)
+LogCookStats: Display:         ProcessingAccessedStrings: 0.002s (1)
+LogCookStats: Display:       ChunkGeneration: 0.007s (1)
+LogCookStats: Display:       FinishPopulateShaderLibrary: 0.000s (1)
+LogCookStats: Display:       CalculateReferencedSet: 0.000s (1)
+LogCookStats: Display:       CookArtifacts.UpdateOplogPackages: 0.002s (1)
+LogCookStats: Display:       PruneShaderLibrary: 0.000s (1)
+LogCookStats: Display:       GeneratorPreSave: 0.000s (1)
+LogCookStats: Display:       BuildChunkManifest: 0.007s (1)
+LogCookStats: Display:         FixupPackageDependenciesForChunks: 0.004s (1)
+LogCookStats: Display:       SaveManifests: 0.000s (1)
+LogCookStats: Display:       SaveAssetRegistry: 0.015s (1)
+LogCookStats: Display:       WriteCookerOpenOrder: 0.001s (1)
+LogCookStats: Display:       WriteCookMetadata: 0.001s (1)
+LogCookStats: Display:       WriteReferencedSet: 0.000s (1)
+LogCookStats: Display:       FinalizePackageStore: 0.925s (1)
+LogCookStats: Display: Misc Cook Stats
+LogCookStats: Display: ===============
+LogCookStats: Display: Validation
+LogCookStats: Display:     Stats=[]
+LogCookStats: Display: Niagara
+LogCookStats: Display:     NiagaraScriptTranslationCount=0
+LogCookStats: Display:     NiagaraCpuScriptCompileCount=0
+LogCookStats: Display:     NiagaraCpuScriptDdcCacheHitCount=0
+LogCookStats: Display:     NiagaraCpuScriptDdcCacheMissCount=0
+LogCookStats: Display:     NiagaraGpuScriptCompileCount=0
+LogCookStats: Display:     NiagaraGpuScriptDdcCacheHitCount=0
+LogCookStats: Display:     NiagaraGpuScriptDdcCacheMissCount=0
+LogCookStats: Display:     NiagaraSystemWaitForCompilationCompleteTime=0.000000
+LogCookStats: Display: ComputeKernelShader.Misc
+LogCookStats: Display:     ShadersCompiled=0
+LogCookStats: Display: NiagaraShader.Misc
+LogCookStats: Display:     ShadersCompiled=0
+LogCookStats: Display: ShaderCompiler
+LogCookStats: Display:     BlockingTimeSec=0.000060
+LogCookStats: Display:     AsyncCompileTimeSec=9.670992
+LogCookStats: Display:     GlobalBeginCompileShaderTimeSec=0.314654
+LogCookStats: Display:     GlobalBeginCompileShaderCalls=3399
+LogCookStats: Display:     ProcessAsyncResultsTimeSec=0.364780
+LogCookStats: Display: GlobalShader.Misc
+LogCookStats: Display:     ShadersCompiled=0
+LogCookStats: Display: Material
+LogCookStats: Display:     FinishCacheShadersSec=0.809606
+LogCookStats: Display: Cook.Profile.Params
+LogCookStats: Display:     CookProject=ButterUp
+LogCookStats: Display:     CookCultures=
+LogCookStats: Display:     CookLabel=
+LogCookStats: Display:     TargetPlatforms=Linux
+LogCookStats: Display:     IsCookAll=false
+LogCookStats: Display:     IsCookOnTheFly=false
+LogCookStats: Display:     IsIncrementalCook=false
+LogCookStats: Display:     IsIterativeCook=false
+LogCookStats: Display:     IsFastCook=false
+LogCookStats: Display:     IsUnversioned=true
+LogCookStats: Display: CookOnTheFlyServer.Package.Load
+LogCookStats: Display:     NumRequestedLoads=3263
+LogCookStats: Display:     NumPackagesLoaded=3317
+LogCookStats: Display:     NumInlineLoads=54
+LogCookStats: Display: CookOnTheFlyServer.Package.Save
+LogCookStats: Display:     NumPackagesIncrementallySkipped=0
+LogCookStats: Display: CookOnTheFlyServer.QueueSize
+LogCookStats: Display:     PeakRequest=502
+LogCookStats: Display:     PeakLoad=101
+LogCookStats: Display:     PeakSave=190
+LogCookStats: Display: Package.Load
+LogCookStats: Display:     LoadPackageTimeSec=2.748514
+LogCookStats: Display: Package.Save
+LogCookStats: Display:     NumPackagesSaved=503
+LogCookStats: Display:     SavePackageTimeSec=2.085127
+LogCookStats: Display:     TagPackageExportsPresaveTimeSec=0.000000
+LogCookStats: Display:     TagPackageExportsTimeSec=0.000000
+LogCookStats: Display:     FullyLoadLoadersTimeSec=0.000000
+LogCookStats: Display:     ResetLoadersTimeSec=0.000000
+LogCookStats: Display:     TagPackageExportsGetObjectsWithOuter=0.000000
+LogCookStats: Display:     TagPackageExportsGetObjectsWithMarks=0.000000
+LogCookStats: Display:     SerializeImportsTimeSec=0.000000
+LogCookStats: Display:     SortExportsSeekfreeInnerTimeSec=0.000000
+LogCookStats: Display:     SerializeExportsTimeSec=0.000000
+LogCookStats: Display:     SerializeBulkDataTimeSec=0.004060
+LogCookStats: Display:     AsyncWriteTimeSec=0.000000
+LogCookStats: Display:     MBWritten=0.000000
+LogCookStats: Display: Package.DifferentPackagesSizeMBPerAsset
+LogCookStats: Display: Package.NumberOfDifferencesInPackagesPerAsset
+LogCookStats: Display: Package.PackageDifferencesSizeMBPerAsset
+LogCookStats: Display: Package.DiffTotal
+LogCookStats: Display:     NumberOfDifferentPackages=0
+LogCookStats: Display:     DifferentPackagesSizeMB=0.000000
+LogCookStats: Display:     NumberOfDifferencesInPackages=0
+LogCookStats: Display:     PackageDifferencesSizeMB=0.000000
+LogCookStats: Display: UnversionedProperties
+LogCookStats: Display:     SavedStructs=0
+LogCookStats: Display:     SavedMB=0
+LogCookStats: Display:     EquivalentTaggedMB=0
+LogCookStats: Display:     CompressionRatio=-nan
+LogCookStats: Display:     BitfieldWasteKB=0
+LogCookStats: Display:
+LogCookStats: Display: Cook Profile
+LogCookStats: Display: ============
+LogCookStats: Display:  0.CookWallTimeSec=28.127392
+LogCookStats: Display:  0. 0.StartupWallTimeSec=9.486596
+LogCookStats: Display:  0. 1.CookProcessingTime=18.640796
+LogCookStats: Display:  0. 1. 1.StartCookByTheBookTimeSec=3.158110
+LogCookStats: Display:  0. 1. 1. 0.BlockOnAssetRegistryTimeSec=0.992233
+LogCookStats: Display:  0. 1. 1. 1.GameCookModificationDelegateTimeSec=0.000017
+LogCookStats: Display:  0. 1. 2.TickCookOnTheSideTimeSec=0.459208
+LogCookStats: Display:  0. 1. 2. 0.TickCookOnTheSideLoadPackagesTimeSec=2.577009
+LogCookStats: Display:  0. 1. 2. 1.TickCookOnTheSideSaveCookedPackageTimeSec=3.738049
+LogCookStats: Display:  0. 1. 2. 1. 0.TickCookOnTheSideResolveRedirectorsTimeSec=0.000000
+LogCookStats: Display:  0. 1. 2. 2.TickCookOnTheSidePrepareSaveTimeSec=0.713155
+LogCookStats: Display:  0. 1. 3.TickLoopGCTimeSec=0.190811
+LogCookStats: Display:  0. 1. 4.TickLoopRecompileShaderRequestsTimeSec=0.000000
+LogCookStats: Display:  0. 1. 5.TickLoopShaderProcessAsyncResultsTimeSec=0.007071
+LogCookStats: Display:  0. 1. 6.TickLoopProcessDeferredCommandsTimeSec=0.000009
+LogCookStats: Display:  0. 1. 7.TickLoopTickCommandletStatsTimeSec=0.000004
+LogCookStats: Display:  0. 1. 8.TickLoopFlushRenderingCommandsTimeSec=0.008467
+LogCookStats: Display:  0. 1. 9.ShaderFlushTimeSec=0.000000
+LogCookStats: Display:  0. 1. 10.ValidationTimeSec=0.000121
+LogCookStats: Display:
+LogCookStats: Display: DDC Summary Stats
+LogCookStats: Display: =================
+LogCookStats: Display: BackEnd         = Installed
+LogCookStats: Display: HasLocalCache   =      true
+LogCookStats: Display: HasSharedCache  =     false
+LogCookStats: Display: HasCloudCache   =     false
+LogCookStats: Display: HasZenCache     =      true
+LogCookStats: Display: TotalGetHits    =      3157
+LogCookStats: Display: TotalGetMisses  =      3226
+LogCookStats: Display: TotalGets       =      6383
+LogCookStats: Display: TotalGetHitPct  =  0.494595
+LogCookStats: Display: GetMissPct      =  0.505405
+LogCookStats: Display: TotalPutHits    =      3226
+LogCookStats: Display: TotalPutMisses  =         0
+LogCookStats: Display: TotalPuts       =      3226
+LogCookStats: Display: TotalPutHitPct  =  1.000000
+LogCookStats: Display: PutMissPct      =  0.000000
+LogCookStats: Display: LocalGetHits    =         0
+LogCookStats: Display: LocalGetMisses  =      3225
+LogCookStats: Display: LocalGetTotal   =      3225
+LogCookStats: Display: LocalGetHitPct  =  0.000000
+LogCookStats: Display: SharedGetHits   =         0
+LogCookStats: Display: SharedGetTotal  =         0
+LogCookStats: Display: SharedGetHitPct =  0.000000
+LogCookStats: Display: ZenLocalGetHits =         0
+LogCookStats: Display: ZenLocalGetTotal=      3225
+LogCookStats: Display: ZenLocalGetHitPct=  0.000000
+LogCookStats: Display: ZenRemoteGetHits=         0
+LogCookStats: Display: ZenRemoteGetTotal=         0
+LogCookStats: Display: ZenRemoteGetHitPct=  0.000000
+LogCookStats: Display: ZenRemoteReadSpeed=  0.000000
+LogCookStats: Display: ZenRemoteWriteSpeed=  0.000000
+LogCookStats: Display: ZenRemoteLatency=  0.000000
+LogCookStats: Display: CloudGetHits    =         0
+LogCookStats: Display: CloudGetTotal   =         0
+LogCookStats: Display: CloudGetHitPct  =  0.000000
+LogCookStats: Display: LocalLatency    =  1.195543
+LogCookStats: Display: LocalReadSpeed  =  0.000000
+LogCookStats: Display: LocalWriteSpeed =  2.470073
+LogCookStats: Display: SharedLatency   =  0.000000
+LogCookStats: Display: SharedReadSpeed =  0.000000
+LogCookStats: Display: SharedWriteSpeed=  0.000000
+LogCookStats: Display: CloudLatency    =  0.000000
+LogCookStats: Display: CloudReadSpeed  =  0.000000
+LogCookStats: Display: CloudWriteSpeed =  0.000000
+LogCookStats: Display:
+LogCookStats: Display: DDC Resource Stats
+LogCookStats: Display: =======================================================================================================
+LogCookStats: Display: Asset Type                          Total Time (Sec)  GameThread Time (Sec)  Assets Built  MB Processed
+LogCookStats: Display: ----------------------------------  ----------------  ---------------------  ------------  ------------
+LogCookStats: Display: Shader                                        263.84                   0.00             5         12.65
+LogCookStats: Display: BulkDataList                                  240.95                   0.00          3105          0.00
+LogCookStats: Display: Texture                                       147.91                   0.00             0          8.81
+LogCookStats: Display: StaticMesh                                     22.81                   0.00             0          0.85
+LogCookStats: Display: MaterialShader                                 16.57                   1.94           101          0.00
+LogCookStats: Display: NavCollision                                   14.77                   0.00             0          0.03
+LogCookStats: Display: CardRepresentation                             13.25                   0.00             0          0.02
+LogCookStats: Display: GlobalShader                                    9.45                   9.45             0         35.62
+LogCookStats: Display: STREAMEDAUDIO                                   3.08                   0.00             0          0.09
+LogCookStats: Display: MaterialTranslation                             0.27                   0.00            15          0.00
+LogCookStats: Display: Audio                                           0.07                   0.00             0          0.08
+LogCookStats: Display: CKERSM                                          0.05                   0.05             0          0.10
+LogCookStats: Display: BodySetup                                       0.02                   0.00             0          0.31
+LogCookStats: Display:
+LogCookStats: Display: Accumulated DDC Resource Stats Per Asset Type
+LogCookStats: Display: =======================================================================================================
+LogCookStats: Display: AnimationSequence                               0.00                   0.00             0          0.00
+LogCookStats: Display: Audio                                           0.07                   0.00             0          0.08
+LogCookStats: Display: CardRepresentation                             13.25                   0.00             0          0.02
+LogCookStats: Display: DistanceField                                   0.00                   0.00             0          0.00
+LogCookStats: Display: MaterialShader                                 16.57                   1.94           101          0.00
+LogCookStats: Display: MaterialTranslation                             0.27                   0.00            15          0.00
+LogCookStats: Display: NiagaraScript                                   0.00                   0.00             0          0.00
+LogCookStats: Display: SkeletalMesh                                    0.00                   0.00             0          0.00
+LogCookStats: Display: StaticMesh                                     22.81                   0.00             0          0.85
+LogCookStats: Display: Texture                                       147.91                   0.00             0          8.81
+LogCookStats: Display: Other                                         532.15                   9.50          3110         48.80
+LogPackageBuildDependencyTracker: Display: Package Accesses (226 referencing packages with a total of 1762 unique accesses)
+LogConfigBuildDependencyTracker: Display: Config Accesses (307 referencing packages with a total of 827 unique accesses). 1577 unique accesses that were not associated with a package.
+LogCook: Display: ---- Finalisation: End ----
+LogCook: Display: Done!
+LogSavePackage: Display: Took 0.000306s to verify the EDL loading graph.
+LogInit: Display:
+LogInit: Display: Success - 0 error(s), 0 warning(s)
+LogInit: Display:
+Execution of commandlet took:  18.64 seconds, PeakPhysMemoryMB=3033 MB, PeakVirtMemoryMB=11244 MB
+LogToolsetRegistry: Display: Unregistering Toolset ToolsetRegistry.AgentSkillToolset
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles (PostWrite): 1 .ref files found, 1 referenced binaries
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles: 1 total binaries, 1 referenced (kept), 0 old-style pre-migration (kept), 0 orphans deleted, 0 orphans locked (kept)
+LogStreaming: Display: ============ Loader Stats ============
+LogStreaming: Display: Unique Partial Flushes: 0
+LogStreaming: Display: ============ Loader Stats End ============
+LogShaderCompilers: Display: Exiting ShaderCompilingThread
+Shutdown handler: cleanup.
+Opening shared memory
+Shared memory doesn't exist, checking legacy lock file
+Checking for a '/tmp/UnrealTraceServer.pid' lock file
+Forking process
+Opening shared memory
+Starting the store
+Reading settings from '/home/ue4/UnrealEngine/UnrealTrace/Settings.ini'
+
+Unable to open settings file /home/ue4/UnrealEngine/UnrealTrace/Settings.ini.
+
+Store settings (/home/ue4/UnrealEngine/UnrealTrace/Settings.ini):
+ - Store port: 1989
+ - Recorder port: 1981
+ - Thread count: 0
+ - Sponsored mode: 1
+ - Directory: '/home/ue4/UnrealEngine/UnrealTrace/Store/001'
+Signalling parent 422
+Terminating server, no sponsors or connections active.
+Listening cancelled, closing port...
+Listening cancelled, closing port...
+Received signal 15
+Daemon is exiting without errors.
+Took 30.99s to run UnrealEditor-Cmd, ExitCode=0
+Cook command time: 31.08 s
+********** COOK COMMAND COMPLETED **********
+BuildCookRun time: 98.08 s
+BUILD SUCCESSFUL
+AutomationTool executed for 0h 1m 39s
+AutomationTool exiting with ExitCode=0 (Success)
+UAT_EXIT=0

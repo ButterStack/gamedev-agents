@@ -1,0 +1,207 @@
+
+Running AutomationTool...
+
+Setting up bundled DotNet SDK
+Start UAT Interactively: dotnet AutomationTool.dll BuildCookRun -project=/work/ParrotGameSample/ParrotGameSample.uproject -noP4 -platform=Linux -clientconfig=Development -cook -skipcompile -unattended -utf8output -map=/Game/Maps/MainMenu/MainMenu
+/home/ue4/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/10.0/linux-x64/dotnet
+Starting AutomationTool...
+Parsing command line: BuildCookRun -project=/work/ParrotGameSample/ParrotGameSample.uproject -noP4 -platform=Linux -clientconfig=Development -cook -skipcompile -unattended -utf8output -map=/Game/Maps/MainMenu/MainMenu
+Initializing script modules...
+Total script module initialization time: 0.69 s.
+Using /home/ue4/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/10.0/linux-x64/dotnet
+Executing commands...
+Setting up ProjectParams for /work/ParrotGameSample/ParrotGameSample.uproject
+********** COOK COMMAND STARTED **********
+HasMapsToCook /Game/Maps/MainMenu/MainMenu
+Params.HasMapsToCook /Game/Maps/MainMenu/MainMenu
+Running UnrealEditor Cook for project /work/ParrotGameSample/ParrotGameSample.uproject
+Commandlet log file is /home/ue4/UnrealEngine/Engine/Programs/AutomationTool/Saved/Cook-2026.07.11-16.46.54.txt
+Running: /home/ue4/UnrealEngine/Engine/Binaries/Linux/UnrealEditor-Cmd "/work/ParrotGameSample/ParrotGameSample.uproject" -run=Cook -Map=/Game/Maps/MainMenu/MainMenu -TargetPlatform=Linux  -unversioned -fileopenlog -abslog="/home/ue4/UnrealEngine/Engine/Programs/AutomationTool/Saved/Cook-2026.07.11-16.46.54.txt" -stdout -CrashForUAT -unattended -NoLogTimes
+Opening shared memory
+Shared memory doesn't exist, checking legacy lock file
+Checking for a '/tmp/UnrealTraceServer.pid' lock file
+Forking process
+Wait until we know the daemon has started.
+Parent received signal 10
+Daemon signalled successful start
+Forked complete (ret=0)
+- Existing per-process limit (soft=1048576, hard=1048576) is enough for us (need only 1048576)
+Increasing per-process limit of core file size to infinity.
+- Existing per-process limit (soft=18446744073709551615, hard=18446744073709551615) is enough for us (need only 18446744073709551615)
+LogInit: Display: Running engine for game: ParrotGameSample
+LogCore: Display: Requested channels: 'cpu,gpu,frame,log,bookmark,screenshot,region'
+LogTrace: Display: Control listening on port 1985
+LogCsvProfiler: Display: Metadata set : platform="Linux"
+Failed to find game directory: /home/ue4/UnrealEngine/ParrotGameSample/Binaries
+LogCsvProfiler: Display: Metadata set : config="Development"
+LogCsvProfiler: Display: Metadata set : buildversion="Unknown-CL-0"
+LogCsvProfiler: Display: Metadata set : engineversion="5.8.0-0+Unknown"
+LogCsvProfiler: Display: Metadata set : enginereleaseversion="5.8.0"
+LogCsvProfiler: Display: Metadata set : os="Ubuntu 22.04.2 LTS 6.18.33.1-microsoft-standard-WSL2"
+LogCsvProfiler: Display: Metadata set : cpu="GenuineIntel|12th Gen Intel(R) Core(TM) i7-12700F"
+LogCsvProfiler: Display: Metadata set : pgoenabled="0"
+LogCsvProfiler: Display: Metadata set : pgoprofilingenabled="0"
+LogCsvProfiler: Display: Metadata set : ltoenabled="0"
+LogCsvProfiler: Display: Metadata set : asan="0"
+LogCsvProfiler: Display: Metadata set : mergedmodules="0"
+LogCsvProfiler: Display: Metadata set : compacttset="0"
+LogCsvProfiler: Display: Metadata set : commandline="" /work/ParrotGameSample/ParrotGameSample.uproject -run=Cook -Map=/Game/Maps/MainMenu/MainMenu -TargetPlatform=Linux -unversioned -fileopenlog -abslog=/home/ue4/UnrealEngine/Engine/Programs/AutomationTool/Saved/Cook-2026.07.11-16.46.54.txt -stdout -CrashForUAT -unattended -NoLogTimes""
+LogCsvProfiler: Display: Metadata set : loginid="7888395b02bd4bd0ae3797fec7d72ec9-000003e8"
+LogCsvProfiler: Display: Metadata set : llm="0"
+LogCsvProfiler: Display: Metadata set : zenstreaming="0"
+LogCsvProfiler: Display: Metadata set : systemresolution.resx="1280"
+LogCsvProfiler: Display: Metadata set : systemresolution.resy="720"
+LogAudio: Display: Audio Device Manager not initializing due to all audio being disabled. If this is not intentional, please check command line arguments for "-nosound".
+LogAssetRegistry: Display: FindShardedCacheFiles: 0 via .ref, 0 via migration fallback, 0 total
+Running command : dotnet Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll -Mode=ValidatePlatforms -OutputSDKs -AllPlatforms -project=/work/ParrotGameSample/ParrotGameSample.uproject -log=/work/ParrotGameSample/Saved/Logs/AutoSDKInfo.txt -verbose -timestamps -progress
+Log file: /work/ParrotGameSample/Saved/Logs/AutoSDKInfo.txt
+##PlatformValidate: Win64 INVALID <UNKNOWN>
+##PlatformValidate: Mac INVALID <UNKNOWN>
+##PlatformValidate: IOS INVALID <UNKNOWN>
+##PlatformValidate: Android INVALID r27c
+##PlatformValidate: Linux VALID v26_clang-20.1.8-rockylinux8
+##PlatformValidate: LinuxArm64 VALID v26_clang-20.1.8-rockylinux8
+##PlatformValidate: TVOS INVALID <UNKNOWN>
+##PlatformValidate: VisionOS INVALID <UNKNOWN>
+Unable to find required SDK version 'MainVersion' for platform Win64. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform Mac. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform IOS. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform TVOS. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform VisionOS. Check your SDK.json files
+Trace written to file /home/ue4/.config/Epic/UnrealBuildTool/Trace.uba with size 304b
+LogConfig: Display: Loading Android ini files took 0.27 seconds
+LogConfig: Display: Loading Mac ini files took 0.27 seconds
+LogConfig: Display: Loading IOS ini files took 0.28 seconds
+LogConfig: Display: Loading VulkanPC ini files took 0.30 seconds
+LogConfig: Display: Loading VisionOS ini files took 0.36 seconds
+LogConfig: Display: Loading Windows ini files took 0.39 seconds
+LogConfig: Display: Loading TVOS ini files took 0.39 seconds
+LogConfig: Display: Loading Unix ini files took 0.40 seconds
+LogConfig: Display: Loading Linux ini files took 0.43 seconds
+LogConfig: Display: Loading LinuxArm64 ini files took 0.44 seconds
+Shutdown handler: initialize.
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Log is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.CSV is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Horde is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Log is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.CSV is disabled for this application
+LogAnalytics: Display: Provider StudioTelemetry.Provider.Horde is disabled for this application
+LogAsyncCompilation: Display: MemorySharingInfo: UsedMemory=5169MiB, MaxMemoryAvailable=26327MiB
+RenderDocPlugin: Display: RenderDoc plugin will not be loaded. Use '-AttachRenderDoc' on the cmd line or enable 'renderdoc.AutoAttach' in the plugin settings.
+LogStreaming: Display: AsyncLoading2 - Created: Async Loading Thread: false, Async Post Load: false, Multithreaded: false
+LogHAL: Display: Platform has ~ 10 GB [10426155008 / 17179869184 / 10], which maps to Default [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+LogCsvProfiler: Display: Metadata set : extradevelopmentmemorymb="0"
+LogObj: Display: Attempting to load config data for Default__DownlinkBandwidthManagerConfig before the Class has been constructed/registered/linked (likely during module loading or early startup). This will result in the load silently failing and should be fixed.
+LogTextureFormatASTC: Display: ASTCEnc version 5.0.1 library loaded
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatASTC
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatDXT
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatETC2
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatIntelISPCTexComp
+LogTextureFormatOodle: Display: Oodle Texture TFO init; latest sdk version = 2.9.16
+LogTextureFormatOodle: Display: Oodle Texture loading DLL: liboo2texlinux64.2.9.16.so
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatOodle
+LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatUncompressed
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64Server'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64Client'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_DXT'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_DXTServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_DXTClient'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ASTC'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ASTCServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ASTCClient'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ETC2'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ETC2Server'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_ETC2Client'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_Multi'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_MultiServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64_MultiClient'
+LogTargetPlatformManager: Display: Failed to SetupSDK for platform 'Android'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'Linux'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxEditor'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxServer'
+LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxClient'
+LogTargetPlatformManager: Display: Building Assets For Linux
+LogObj: Display: Attempting to load config data for Default__SlateThemeManager before the Class has been constructed/registered/linked (likely during module loading or early startup). This will result in the load silently failing and should be fixed.
+LogCsvProfiler: Display: Metadata set : verbatimrhiname="Null"
+LogCsvProfiler: Display: Metadata set : rhiname="Null"
+LogCsvProfiler: Display: Metadata set : rhifeaturelevel="SM5"
+LogCsvProfiler: Display: Metadata set : shaderplatform="VULKAN_SM5"
+LogCsvProfiler: Display: Metadata set : gpu=""
+LogCsvProfiler: Display: Metadata set : gpudriver=""
+LogDerivedDataCache: Display: ../../../Engine/DerivedDataCache/Compressed.ddp: Opened pak cache for reading. (1080 MiB)
+LogZenServiceInstance: Display: Launching zen utility '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zen service status'.
+LogZenServiceInstance: Display: Unable to find existing plugin information at '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zen_plugin_versions.json'. Creating a new plugin info file.
+LogZenServiceInstance: Display: Writing plugin version info to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zen_plugin_versions.json'
+LogZenServiceInstance: Display: Launching zen utility '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zen version --detailed --output-path "/var/tmp/zenversion019F521338B970F0B16366A8514DF6FA.tmp"'.
+LogZenServiceInstance: Display: Zen utility process completed successfully, version: '5.8.13-202605190912-linux-x86_64-release-094f62c2'
+LogZenServiceInstance: Display: Installing service version '5.8.13-202605190912-linux-x86_64-release-094f62c2', from '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zenserver' to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zenserver'
+LogZenServiceInstance: Display: Installed service version '5.8.13-202605190912-linux-x86_64-release-094f62c2' from '/home/ue4/UnrealEngine/Engine/Binaries/Linux/zenserver' to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zenserver'
+LogZenServiceInstance: Display: Writing security configuration to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/security-config.json'
+LogZenServiceInstance: Display: Lock file '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data/.lock' is not active, nothing to do
+LogZenServiceInstance: Display: Migrating default data path from '/home/ue4/.config/Epic/Zen/Data' to '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data'.  Old location will be deleted.
+LogZenServiceInstance: Display: Launching executable '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zenserver', working dir '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install', data dir '/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data', args '--port 8558 --data-dir /home/ue4/.config/Epic/UnrealEngine/Common/Zen/Data --http asio --gc-cache-duration-seconds 1209600 --gc-interval-seconds 21600 --gc-low-diskspace-threshold 2147483648 --cache-bucket-limit-overwrites --quiet --restrict-content-types --allow-external-oidctoken-exe=false --plugins-config "/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/zen_plugins_v1.json" --security-config-path "/home/ue4/.config/Epic/UnrealEngine/Common/Zen/Install/security-config.json" --owner-pid 66  --child-id Zen_66_Startup --detach'
+LogZenServiceInstance: Display: Unreal Zen Storage Server HTTP service at http://[::1]:8558 status: OK!.
+LogDerivedDataCache: Display: ZenLocal: Using ZenServer HTTP service at [::1] with namespace ue.ddc. Status: OK!.
+LogDerivedDataCache: Display: /home/ue4/.config/Epic/UnrealEngine/Common/DerivedDataCache: Performance: Latency=0.13ms. RandomReadSpeed=4768.17MBs, RandomWriteSpeed=755.02MBs. Assigned SpeedClass 'Local'
+LogUbaHorde: Display: UBA/Horde Configuration [Uba.Provider.Horde]: Not Enabled
+LogShaderCompilers: Display: No distributed shader compiler controller found
+LogShaderCompilers: Display: Using 15 local workers for shader compilation
+LogShaderCompilers: Display: Compiling shader autogen file: ../../../../../../work/ParrotGameSample/Intermediate/ShaderAutogen/VULKAN_SM5/AutogenShaderHeaders.ush
+LogShaderCompilers: Display: Shader autogen file written: ../../../../../../work/ParrotGameSample/Intermediate/ShaderAutogen/VULKAN_SM5/AutogenShaderHeaders.ush
+LogEditorDomain: Display: EditorDomain is Disabled
+LogAssetRegistry: Display: AssetDataGatherer spent 0.000s loading caches from ../../../../../../work/ParrotGameSample/Intermediate/CachedAssetRegistry.
+LogDeviceProfileManager: Display: Deviceprofile LinuxArm64Editor not found.
+LogDeviceProfileManager: Display: Deviceprofile LinuxArm64 not found.
+LogCsvProfiler: Display: Metadata set : deviceprofile="LinuxEditor"
+LogStreaming: Display: FlushAsyncLoading(1): 1 QueuedPackages, 0 AsyncPackages
+LogTextureEncodingSettings: Display: Texture Encode Speed: Final (cook).
+LogTextureEncodingSettings: Display: Oodle Texture Encode Speed settings: Fast: RDO Off Lambda=0, Effort=Normal Final: RDO Off Lambda=0, Effort=Normal
+LogTextureEncodingSettings: Display: Shared linear texture encoding: Disabled
+LogMeshReduction: Display: HLOD mesh reduction module (r.ProxyLODMeshReductionModule) set to "ProxyLODMeshReduction" which doesn't exist.
+LogMeshReduction: Display: Using QuadricMeshReduction for automatic static mesh reduction
+LogMeshReduction: Display: Using SkeletalMeshReduction for automatic skeletal mesh reduction
+LogMeshReduction: Display: No automatic mesh merging module available
+LogMeshReduction: Display: No distributed automatic mesh merging module available
+LogVirtualization: Display: VirtualizationSystem name found in ini file: None
+LogVirtualization: Display: FNullVirtualizationSystem mounted, virtualization will be disabled
+LogWorldPartition: Display: FWorldPartitionClassDescRegistry::Initialize started...
+LogWorldPartition: Display: FWorldPartitionClassDescRegistry::Initialize took 2.093 ms
+LogPluginManager: Error: Plugin 'CommonLoadingScreen' failed to load because module 'CommonStartupLoadingScreen' could not be found.  Please ensure the plugin is properly installed, otherwise consider disabling the plugin for this project.
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles (PostWrite): 0 .ref files found, 0 referenced binaries
+LogAssetRegistry: Display: CleanupOrphanedCacheFiles: 0 total binaries, 0 referenced (kept), 0 old-style pre-migration (kept), 0 orphans deleted, 0 orphans locked (kept)
+LogStreaming: Display: ============ Loader Stats ============
+LogStreaming: Display: Unique Partial Flushes: 0
+LogStreaming: Display: ============ Loader Stats End ============
+LogShaderCompilers: Display: Exiting ShaderCompilingThread
+Exiting abnormally (error code: 1)
+Shutdown handler: cleanup.
+Opening shared memory
+Shared memory doesn't exist, checking legacy lock file
+Checking for a '/tmp/UnrealTraceServer.pid' lock file
+Forking process
+Opening shared memory
+Starting the store
+Reading settings from '/home/ue4/UnrealEngine/UnrealTrace/Settings.ini'
+
+Unable to open settings file /home/ue4/UnrealEngine/UnrealTrace/Settings.ini.
+
+Store settings (/home/ue4/UnrealEngine/UnrealTrace/Settings.ini):
+ - Store port: 1989
+ - Recorder port: 1981
+ - Thread count: 0
+ - Sponsored mode: 1
+ - Directory: '/home/ue4/UnrealEngine/UnrealTrace/Store/001'
+Signalling parent 67
+Terminating server, no sponsors or connections active.
+Listening cancelled, closing port...
+Listening cancelled, closing port...
+Received signal 15
+Daemon is exiting without errors.
+Took 11.29s to run UnrealEditor-Cmd, ExitCode=1
+Cook failed.
+(see /home/ue4/Library/Logs/Unreal Engine/LocalBuildLogs/Log.txt for full exception trace)
+AutomationTool executed for 0h 0m 13s
+AutomationTool exiting with ExitCode=25 (Error_UnknownCookFailure)
+RunUAT ERROR: AutomationTool was unable to run successfully. Exited with code: 25
+UAT_EXIT=25
