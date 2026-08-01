@@ -1,0 +1,19 @@
+{
+  "name": "jenkins",
+  "displayName": "Jenkins Agent",
+  "description": "Observe, operate, and safely diagnose a Jenkins CI/CD server. A read-first, gamedev-focused Claude Code agent that pairs with the Perforce agent's change-commit build loop.",
+  "version": "0.1.0",
+  "author": {
+    "name": "ButterStack"
+  },
+  "homepage": "https://github.com/ButterStack/gamedev-agents/tree/main/jenkins",
+  "repository": "https://github.com/ButterStack/gamedev-agents",
+  "keywords": [
+    "jenkins",
+    "ci",
+    "cd",
+    "gamedev",
+    "unreal",
+    "unity"
+  ]
+}
