@@ -1,0 +1,24 @@
+{
+  "name": "perforce",
+  "displayName": "Perforce Agent (Helix Core)",
+  "description": "Observe, analyze, and safely operate a Perforce / Helix Core (p4/p4d) system. A read-first, gamedev-focused Claude Code agent with observability + operations skills and slash commands.",
+  "version": "0.2.0",
+  "author": {
+    "name": "ButterStack"
+  },
+  "homepage": "https://github.com/ButterStack/gamedev-agents/tree/main/perforce",
+  "repository": "https://github.com/ButterStack/gamedev-agents",
+  "keywords": [
+    "perforce",
+    "p4",
+    "helix-core",
+    "p4d",
+    "version-control",
+    "gamedev",
+    "unreal",
+    "unity",
+    "depot",
+    "changelist",
+    "stream"
+  ]
+}
