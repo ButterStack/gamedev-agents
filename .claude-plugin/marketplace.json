@@ -1,0 +1,41 @@
+{
+  "name": "gamedev-agents",
+  "owner": {
+    "name": "ButterStack"
+  },
+  "metadata": {
+    "description": "ButterStack's collection of domain-specific gamedev agents for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "perforce",
+      "source": "./perforce",
+      "description": "Observe, analyze, and safely operate a Perforce / Helix Core (p4/p4d) system - read-first, gamedev-focused.",
+      "keywords": ["perforce", "p4", "helix-core", "gamedev", "unreal", "unity"]
+    },
+    {
+      "name": "unreal",
+      "source": "./unreal",
+      "description": "Observe, diagnose, and safely operate an Unreal Engine project's build/cook/package pipeline and editor automation - read-first, gamedev-focused.",
+      "keywords": ["unreal", "unreal-engine", "ue5", "gamedev", "buildcookrun", "cook", "uasset", "perforce"]
+    },
+    {
+      "name": "unity",
+      "source": "./unity",
+      "description": "Observe, diagnose, and safely operate a Unity project's CLI build pipeline via the standalone Unity CLI - read-first, gamedev-focused, with Editor-version routing (2022 LTS batchmode vs Unity 6), plus the verified Unity 6 Pipeline live-Editor control surface and MCP (140 tools, Unity's own confirm/dry_run gates).",
+      "keywords": ["unity", "unity3d", "unity-cli", "gamedev", "batchmode", "unity-hub", "pipeline", "unity6", "mcp", "perforce"]
+    },
+    {
+      "name": "lore",
+      "source": "./lore",
+      "description": "Observe, analyze, and safely operate an Epic Games Lore version control system (the `lore` CLI, formerly Unreal Revision Control) - read-first, gamedev-focused.",
+      "keywords": ["lore", "epic-games", "unreal-revision-control", "version-control", "vcs", "gamedev", "unreal"]
+    },
+    {
+      "name": "jenkins",
+      "source": "./jenkins",
+      "description": "Observe, operate, and safely diagnose a Jenkins CI/CD server. Read-first; pairs with the Perforce agent's change-commit build loop.",
+      "keywords": ["jenkins", "ci", "cd", "gamedev", "unreal", "unity"]
+    }
+  ]
+}
