@@ -49,6 +49,9 @@ us - see any plugin's `LEARNINGS.md` for the specifics.
 See [CONTRIBUTING.md](./CONTRIBUTING.md). Real-depot and real-engine testing reports
 are especially valuable - behavior varies a lot by server/engine version and setup.
 
+This repo's own content is kept current from ButterStack's private working repo on
+a standing basis - see [DISTILLING.md](./DISTILLING.md) for the process.
+
 ## License
 
 **Not yet licensed for reuse.** This repo does not currently include a LICENSE file,
