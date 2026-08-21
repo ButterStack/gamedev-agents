@@ -24,17 +24,18 @@ Work through every file that's new or changed since the last distillation. For
 each one:
 
 **Strip entirely - these should never appear in this repo:**
-- Internal Rails/app file paths and method names (`app/services/...`,
+- Internal Rails/app file paths and method names (`app/<internal-paths>/...`,
   `client.rb#some_method`, specific class/service names from the private repo's
   codebase).
-- Internal hostnames and URLs (`demo.butterstack.com`, `staging.butterstack.com`,
-  any `*.butterstack.com` subdomain that isn't the public marketing site,
-  internal admin panels).
+- Internal hostnames and URLs (`<env>.example.com`-shaped internal subdomains,
+  any subdomain of the private repo's production domain that isn't the public
+  marketing site, internal admin panels).
 - Docker container/service names tied to the private repo's compose setup
-  (`butter_stack-jenkins-1` and similar).
-- Personal names (Kevin, Ryan, or any other individual) - reword to "the team",
-  "we", or drop the attribution entirely. First-person plural ("we found",
-  "we recommend") reads fine and is honest without naming anyone.
+  (`<project>-jenkins-1`-shaped names and similar).
+- Personal names (individual names used internally, or any other individual) -
+  reword to "the team", "we", or drop the attribution entirely. First-person
+  plural ("we found", "we recommend") reads fine and is honest without naming
+  anyone.
 - Internal tracking references: GitHub issue numbers, branch names
   (`claude/issue-36-...`), PR numbers, internal doc filenames.
 - Private repo URLs, including private forks (e.g. an org-internal fork of a
@@ -72,9 +73,13 @@ each one:
   to disclose, genericize it; if it's just a label for "our second test game,"
   it's fine.
 
-Run a final grep sweep before considering a file done:
+Run a final grep sweep before considering a file done. The pattern below is a
+shape, not the real values - swap in the actual internal names, project
+prefix, and production subdomains from the private repo before running it
+(deliberately not spelled out here so this document doesn't itself become a
+list of live internal identifiers):
 ```
-grep -rniE 'Kevin|Ryan|butter_stack-|app/(services|clients|controllers)|demo\.butterstack|staging\.butterstack|issue #[0-9]|branch `claude/' <changed files>
+grep -rniE '<individual names>|<project>-|app/(services|clients|controllers)|<env>\.<production-domain>|issue #[0-9]|branch `claude/' <changed files>
 ```
 Zero hits, or every hit explained, is the bar.
 

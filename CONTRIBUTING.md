@@ -150,8 +150,6 @@ setups.
 
 ## License
 
-This repo does not yet have a finalized license (see the root
-[README](./README.md#license)). Until one is added, treat any contribution
-discussion as provisional - the license that ultimately covers this project will
-also cover contributions made before it's added, and will be called out clearly
-when it lands.
+This repo is MIT licensed (see [LICENSE](./LICENSE)). By submitting a
+contribution, you agree it is provided under the same MIT license as the rest
+of the project.

@@ -54,11 +54,20 @@ a standing basis - see [DISTILLING.md](./DISTILLING.md) for the process.
 
 ## License
 
-**Not yet licensed for reuse.** This repo does not currently include a LICENSE file,
-so all rights are reserved by default - treat it as read-only reference, not
-licensed open-source code. A license decision (most likely MIT, matching
-ButterStack's stated intent for this series) is still pending and will be made
-before this repo is ever made public.
+MIT. See [LICENSE](./LICENSE).
+
+## Trademarks
+
+Perforce, Helix Core, and P4 are trademarks or registered trademarks of Perforce
+Software, Inc. Unreal Engine, Epic Games, and Lore are trademarks or registered
+trademarks of Epic Games, Inc. Unity is a trademark or registered trademark of
+Unity Technologies. Jenkins is a trademark of the Jenkins project (a
+Continuous Delivery Foundation project).
+
+ButterStack is not affiliated with, endorsed by, or sponsored by Perforce
+Software, Epic Games, Unity Technologies, or the Jenkins project. These marks
+are used only to identify the third-party tools these agents observe and
+operate; naming a tool is not a claim of partnership or endorsement.
 
 ---
 

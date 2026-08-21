@@ -3,6 +3,7 @@
   "displayName": "Jenkins Agent",
   "description": "Observe, operate, and safely diagnose a Jenkins CI/CD server. A read-first, gamedev-focused Claude Code agent that pairs with the Perforce agent's change-commit build loop.",
   "version": "0.1.0",
+  "license": "MIT",
   "author": {
     "name": "ButterStack"
   },

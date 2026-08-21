@@ -36,9 +36,14 @@ touches them; opening a project in a newer engine re-saves its assets forward
   MCP server bind loopback with no auth by design - never expose them beyond
   localhost, the same discipline the `jenkins` agent applies to API tokens.
 - **C++-heavy, thin-Blueprint strategy.** Authoring Blueprint node-graphs from script
-  is the buggiest surface in every third-party MCP server, and Epic is sunsetting
-  Blueprints in UE6 in favor of Verse - so it's out of scope for v1 by design. Logic
-  lives in C++ (compiled by UBT/Live Coding); Blueprints stay thin (subclass, set
+  is the buggiest surface in every third-party MCP server, and that alone is reason
+  enough to keep it out of scope for v1. Separately, Epic has signaled a longer-term
+  direction toward Verse (per State of Unreal 2026 and Epic's "road to UE 6" posts):
+  Blueprints remain fully supported through UE6 Early Access and initial releases,
+  and Epic has said deprecation would only follow once the Verse-based Scene Graph
+  framework matures, with conversion tooling shipped first. That direction, not a
+  settled cutover date, is the second reason this stays thin-Blueprint. Logic lives
+  in C++ (compiled by UBT/Live Coding); Blueprints stay thin (subclass, set
   defaults, get placed in a level via Python, which handles structural/param work
   well).
 
@@ -94,7 +99,8 @@ taught a separate set of operational lessons, logged in `LEARNINGS.md` section B
   and third-party servers as detected, version-gated accelerants. A pivot to
   wrapping a thin first-party MCP server is a live option if that changes.
 - **Blueprint-graph authoring**: explicitly out of scope (buggy everywhere, and
-  Blueprints are being deprecated in favor of Verse). Revisit only if a task
+  Epic's own stated direction is toward Verse over time, though Blueprints remain
+  fully supported today with no announced cutover date). Revisit only if a task
   genuinely needs graph automation.
 - **UE version span**: this plugin targets UE 5.4-5.8; UE6/Verse is forward-looking
   and not yet covered.

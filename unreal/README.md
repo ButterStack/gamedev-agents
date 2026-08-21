@@ -78,7 +78,12 @@ against `Content/` and `Source/` trees and `*.uproject` files (those belong to
 Perforce), any write into the engine install tree (`UE_*/Engine/...` is a read-only
 reference), and deletion of a shared/network DerivedDataCache - regardless of how
 your permissions are set. Build-output cleanup (`Saved/`, `Intermediate/`,
-`Binaries/`, a *local* DDC) passes through.
+`Binaries/`, a *local* DDC) passes through. **The hook is a shell-string
+matcher, not a sandbox** - it catches the common direct and chained forms, but
+a route that never puts the protected path next to `rm`/`mv` (`find ... |
+xargs rm`, `git clean -xfd`) is not something a shell-string matcher can
+reliably see. Perforce, not this hook, is the real backstop against data loss
+for anything checked in.
 
 ## Quickstart
 

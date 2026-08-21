@@ -60,7 +60,10 @@ read-only Perforce user - never as `super`/admin.** Perforce protections, not Cl
 Code permissions, are what actually stop a destructive command. As a backstop, this
 plugin also ships a `guard-p4` hook that hard-blocks `p4 obliterate`, `p4 admin`,
 `archive`/`restore`, `dbverify`, and other server-lifecycle commands regardless of
-how your permissions are set.
+how your permissions are set, including when a benign `p4` call precedes the
+destructive one in the same command (`p4 info && p4 obliterate ...`). It is a
+shell-string matcher, not a full shell-grammar parser - the p4 account's own
+permissions remain the control that cannot be talked around.
 
 Two settings are worth adding to your **own** `~/.claude/settings.json` or project
 `.claude/settings.json` (plugins can't ship `env`/`permissions` for you):

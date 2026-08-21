@@ -83,7 +83,9 @@ Jenkins admin/`ADMINISTER`-holding account.
 (`/script`, `/scriptText`, CLI `groovy`/`groovysh`) regardless of how your Claude
 Code permissions are configured - but a least-privileged Jenkins account that
 simply *can't* reach the Script Console (no `ADMINISTER`/`RUN_SCRIPTS` permission)
-is the guardrail that actually matters.
+is the guardrail that actually matters. It is a shell-string matcher, not a full
+shell-grammar parser, so treat it as a backstop against the common mistake, not
+a guarantee against every way to construct the same request.
 
 ## Quickstart
 

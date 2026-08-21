@@ -79,7 +79,9 @@ commit identity (`lore ... --identity you@example.com`, or `identity` in
 **The real safety boundary is your Lore account and server permissions**, not Claude
 Code's. As a backstop, this plugin ships a `guard-lore` hook that hard-blocks
 `lore file obliterate` (irreversible fragment destruction) and `lore repository
-delete` regardless of how your permissions are set.
+delete` regardless of how your permissions are set. It is a shell-string matcher,
+not a full shell-grammar parser - a backstop against the common mistake, not a
+guarantee against every way to construct the same request.
 
 Optionally reduce prompts for read-only inspection by allowlisting the safe commands
 in your **own** `~/.claude/settings.json` or project `.claude/settings.json` (plugins

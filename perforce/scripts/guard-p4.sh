@@ -19,26 +19,34 @@ else
 fi
 [ -n "$cmd" ] || exit 0
 
-# Extract the p4 SUBCOMMAND (verb): the first non-flag token after a `p4`/`.../p4`
-# token, skipping global flags and the values of value-taking flags. Matching the
-# verb position (not "anywhere in the string") avoids false positives like a depot
-# path //depot/archive/... being read as the `archive` verb.
-verb="$(printf '%s' "$cmd" | awk '{
-  s=0
-  for (i=1;i<=NF;i++) { if ($i ~ /(^|\/)p4$/) { s=i; break } }
-  if (!s) exit
-  for (i=s+1;i<=NF;i++) {
-    t=$i
-    if (t ~ /^-/) { if (t ~ /^-(p|u|c|C|d|H|P|Q|r|v|x|z|F|L|G|I)$/) i++; continue }
-    print t; exit
+# Extract the p4 SUBCOMMAND (verb): for EVERY `p4`/`.../p4` token in the command,
+# the first non-flag token after it, skipping global flags and the values of
+# value-taking flags. Emitting a verb per occurrence (not just the first) catches
+# forms like `p4 info && p4 obliterate ...` or `p4 -ztag info; p4 obliterate ...`,
+# where a benign p4 call precedes the destructive one. Matching the verb POSITION
+# (not "anywhere in the string") avoids false positives like a depot path
+# //depot/archive/... being read as the `archive` verb.
+verbs="$(printf '%s' "$cmd" | awk '{
+  for (s=1;s<=NF;s++) {
+    if ($s !~ /(^|\/)p4$/) continue
+    for (i=s+1;i<=NF;i++) {
+      t=$i
+      if (t ~ /^-/) { if (t ~ /^-(p|u|c|C|d|H|P|Q|r|v|x|z|F|L|G|I)$/) i++; continue }
+      print t; break
+    }
   }
 }')"
+[ -n "$verbs" ] || exit 0
 
-case "$verb" in
-  obliterate|admin|dbverify|dbpack|journalcopy|journaldbchecksums|archive|restore|unload|ldapsync|storage|unsubmit|duplicate|retype)
-    echo "guard-p4: refusing '$verb' - server-lifecycle / archive / history-rewriting operations are out of scope for this agent. Refer to the Perforce administrator." >&2
-    exit 2
-    ;;
-esac
+while IFS= read -r verb; do
+  case "$verb" in
+    obliterate|admin|dbverify|dbpack|journalcopy|journaldbchecksums|archive|restore|unload|ldapsync|storage|unsubmit|duplicate|retype)
+      echo "guard-p4: refusing '$verb' - server-lifecycle / archive / history-rewriting operations are out of scope for this agent. Refer to the Perforce administrator." >&2
+      exit 2
+      ;;
+  esac
+done <<EOF
+$verbs
+EOF
 
 exit 0
