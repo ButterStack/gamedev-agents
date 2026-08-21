@@ -3,6 +3,7 @@
   "displayName": "Lore Agent (Epic Games VCS)",
   "description": "Observe, analyze, and safely operate an Epic Games Lore version control system (the `lore` CLI - formerly Unreal Revision Control). A read-first, gamedev-focused Claude Code agent with observability + operations skills and slash commands.",
   "version": "0.1.0",
+  "license": "MIT",
   "author": {
     "name": "ButterStack"
   },

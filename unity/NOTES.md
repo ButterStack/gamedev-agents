@@ -90,6 +90,16 @@ reference). **Allowed**: deleting regenerable build state - `Library/`,
 `Temp/`, `Logs/`, `obj/`, `Builds/` (the agent still confirms a `Library/`
 wipe because of the reimport cost, but the hook does not block it).
 
+**Honest limit**: this is a shell-string matcher, not a sandbox. It catches
+the common direct forms (`rm x.meta`, `rm -rf Assets/...`) and chained
+variants, but a path that never puts the protected filename or directory
+directly next to `rm`/`mv` - `find Assets -name '*.meta' | xargs rm`,
+`git clean -xfd Assets` - is not something a shell-string matcher can
+reliably see and is not caught. The hook is a backstop against the common
+mistake, not a guarantee against every route to the same deletion; treat
+source control (commit before destructive local operations) as the real
+safety net.
+
 Soft gates the agent owns: `--allow-install` (multi-GB silent download);
 `--allow-dirty-build` (defeats the CLI's own uncommitted-changes guard);
 `unity license activate`/`return` (seat); `unity editors upgrade` and any

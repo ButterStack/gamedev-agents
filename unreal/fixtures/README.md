@@ -2,6 +2,13 @@
 
 Real captured engine output used to version-verify the `unreal-observe` log grammar.
 
+Three of the four fixtures below build **ParrotGameSample**, Epic Games and
+Secret Dimension's free, publicly released Unreal Engine sample project
+([Fab listing](https://www.fab.com/listings/844973a5-88a4-4870-a685-ab6d9770e203),
+[Epic's announcement](https://www.unrealengine.com/news/parrot-game-sample-a-new-practical-resource-for-game-devs-switching-to-unreal-engine)).
+It is not a ButterStack project. Building it directly is how these fixtures
+were captured, and anyone can download it and reproduce the same builds.
+
 - `parrot-ue5.6.1-cooklog.txt` — a real `BuildCookRun -build -cook` of ParrotGameSample on
   **UE 5.6.1** (linux/amd64, dev-slim image), captured 2026-07-10 on the Windows build host.
   Green build (0 err/0 warn, 1006 pkgs cooked). This is the evidence behind the

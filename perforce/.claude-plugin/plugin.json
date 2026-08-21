@@ -3,6 +3,7 @@
   "displayName": "Perforce Agent (Helix Core)",
   "description": "Observe, analyze, and safely operate a Perforce / Helix Core (p4/p4d) system. A read-first, gamedev-focused Claude Code agent with observability + operations skills and slash commands.",
   "version": "0.2.0",
+  "license": "MIT",
   "author": {
     "name": "ButterStack"
   },

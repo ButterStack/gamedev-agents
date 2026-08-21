@@ -52,14 +52,22 @@ Installs to `$UNITY_CLI_HOME` (default `~/.unity`), binary in `~/.unity/bin`.
 
 Windows - the docs give the same `| bash` line, which is **wrong for
 PowerShell**. There is an **undocumented `install.ps1`** on the same CDN path
-that is the correct Windows installer (verified working):
+that is the correct Windows installer (verified working). Because it is
+undocumented and Unity does not version it, download and inspect it before
+running rather than piping straight into `iex`:
 
 ```powershell
-$env:UNITY_CLI_CHANNEL="beta"; irm https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.ps1 | iex
+Invoke-WebRequest -Uri https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.ps1 -OutFile install.ps1
+Get-FileHash install.ps1 -Algorithm SHA256
+# last verified 2026-08-21: 3b5b42c066f04a43aaa587cfa50c5873e0148b80138a8befc610f7a7477b58e6
+# Unity can change this file without notice - a different hash on a later pull
+# is not itself a red flag, but means re-reading install.ps1 before running it.
+$env:UNITY_CLI_CHANNEL="beta"; .\install.ps1
 ```
 
-Installs to `%LOCALAPPDATA%\Unity\bin\unity.exe`, verifying SHA-256 first.
-Requires a terminal restart (or the absolute path) before `unity` is on `PATH`.
+Installs to `%LOCALAPPDATA%\Unity\bin\unity.exe`, which then verifies its own
+SHA-256 against Unity's manifest at first run. Requires a terminal restart
+(or the absolute path) before `unity` is on `PATH`.
 
 Self-update: `unity upgrade`. Removal: `unity self-uninstall`.
 

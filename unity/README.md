@@ -74,8 +74,15 @@ curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh | UNITY_
 ```
 
 ```powershell
-# Windows (the docs' `| bash` line is wrong for PowerShell; this installer is verified)
-$env:UNITY_CLI_CHANNEL="beta"; irm https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.ps1 | iex
+# Windows (the docs' `| bash` line is wrong for PowerShell). install.ps1 is an
+# undocumented CDN script Unity does not version - download and inspect it
+# rather than piping straight into `iex`:
+Invoke-WebRequest -Uri https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.ps1 -OutFile install.ps1
+Get-FileHash install.ps1 -Algorithm SHA256
+# last verified 2026-08-21: 3b5b42c066f04a43aaa587cfa50c5873e0148b80138a8befc610f7a7477b58e6
+# a different hash later isn't itself a red flag - Unity can update this file
+# without notice - but re-read the script before running it if it changes.
+$env:UNITY_CLI_CHANNEL="beta"; .\install.ps1
 ```
 
 plus a Unity Editor matching the project's
@@ -96,7 +103,12 @@ destructive filesystem commands (`rm`/`mv`/truncating redirects/
 and any `*.meta` file (those belong to source control - and a deleted `.meta`
 orphans its asset's GUID), plus any write into a Unity Editor install tree -
 regardless of how your permissions are set. Regenerable build-state cleanup
-(`Library/`, `Temp/`, `Logs/`, `obj/`, `Builds/`) passes through.
+(`Library/`, `Temp/`, `Logs/`, `obj/`, `Builds/`) passes through. **The hook is
+a shell-string matcher, not a sandbox** - it catches the common direct and
+chained forms, but a route that never puts the protected path next to
+`rm`/`mv` (`find ... | xargs rm`, `git clean -xfd`) is not something a
+shell-string matcher can reliably see. Source control, not this hook, is the
+real backstop against data loss.
 
 ## Quickstart
 
