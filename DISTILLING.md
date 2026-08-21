@@ -59,7 +59,7 @@ each one:
   what make a playbook copy-pasteable and are never sensitive.
 
 **Genericize - keep the substance, drop the specific internal-ish identifier:**
-- Personal or team machine/rig names (`beast`, `wanda`, `beast-wsl`) → "the
+- Personal or team machine/rig names (`rig-01`, `rig-02`, `workstation-b`) → "the
   primary test machine," "a second machine on hand."
 - An internal environment name used as a stand-in for "a real server" (e.g. "the
   demo Perforce server") → "our own internal Perforce server" or similar - the
