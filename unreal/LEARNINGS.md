@@ -47,6 +47,33 @@ No secrets - reference credential *locations*, never paste them.
   clean on UE 5.8 (496/503 packages, 0 err/warn) using the same ZenServer/
   `FShaderJobCache` grammar - confirming the fix generalizes rather than being
   tuned to one project's log shape.
+- **An installed (binary) engine refuses a target that changes shared build settings, and
+  UBT's own suggested fix is the trap.** A `.Target.cs` whose `DefaultBuildSettings` /
+  `IncludeOrderVersion` differ from the installed engine fails in seconds, before compiling
+  anything: `<Target> modifies the values of properties: [ <Prop>: A != B ]. This is not
+  allowed, as <Target> has build products in common with UnrealEditor`, with
+  `CompilationResult=6`. UBT suggests `BuildEnvironment = TargetBuildEnvironment.Unique`,
+  which means "compile the engine too" and is impossible on an installed or container
+  engine. Align the target to the engine instead. Now both a signature row and a preflight
+  check, since it is cheap to spot in `Source/*.Target.cs` before a build starts.
+- **One missing `#include` masquerades as missing types *and* as broken inheritance.**
+  Headers using a shared struct header without including it produced `unknown type name
+  '<FStruct>'` for a struct that **is** defined, `cannot initialize object parameter of
+  type '<Base>'`, and a `TIsDerivedFrom<...>::IsDerived` static_assert against a class that
+  **does** derive from that base. Two includes collapsed ~30 of 57 error lines. The durable
+  lesson is ordering: fix includes and rebuild *before* believing any "unknown type" or
+  "not derived from" claim.
+- **UHT cannot parse a nested enum used in a `UFUNCTION` signature**, and says so
+  misleadingly: `Unable to find 'class', 'delegate', 'enum', or 'struct' with name 'X'`
+  paired with `C++ Default parameter not parsed`. The type is usually a few lines above,
+  declared inside the UCLASS. Hoist it to file scope and tag it `UENUM()`.
+- **`Error_UnknownCookFailure` (25) is not always missing content.** A Blueprint-only
+  template project on a *matched* engine failed with `Could not find a function named "..."
+  in 'X'` and `In use pin ... no longer exists on node`, plus `Failed to find script package
+  for import object 'Package /Script/<Plugin>'` - Blueprint nodes outliving a plugin no
+  longer enabled by default. When the missing import is a `/Script/<Plugin>` package rather
+  than a `/Game/` asset, check plugin enablement, not an unsynced file. Related preflight: a
+  project with no `.umap`/`.uasset` has nothing to cook at all - compile it instead.
 
 ## B. Operational / rig learnings (standing up a real-engine test rig)
 
@@ -91,3 +118,29 @@ No secrets - reference credential *locations*, never paste them.
    was roughly a third smaller than the full one, still shipped a working compiler
    toolchain and editor, and only dropped debug symbols - a good default unless
    you specifically need those symbols.
+9. **A WSL2 `df` reports free space that does not exist.** The WSL ext4 volume is a sparse
+   virtual disk on the Windows drive: `df` inside WSL showed ~895 GB free while the host
+   volume had **19 GB**. Disk prechecks on a WSL-hosted rig must read the Windows volume
+   (`df /mnt/c`), never the WSL root, or a cook sized against the WSL number fills the host
+   drive.
+10. **Windows OpenSSH kills detached children when the SSH session closes** - the
+    Windows-side counterpart to item 5. A hidden `Start-Process` launched over SSH appears
+    to start, then silently produces nothing. Launch long jobs as scheduled tasks
+    (`schtasks /Create ... /SC ONCE /RL HIGHEST`, then `schtasks /Run`), which outlive the
+    session.
+11. **A dead registry credential is indistinguishable from a missing tag, and image
+    preflights need bounds.** With an expired token, `docker manifest inspect` returns
+    `denied: denied` for *every* tag, including images already present locally - which reads
+    as "this tag does not exist" and produced a wrong conclusion about which engine images
+    are published. Verify auth against a known-present image before calling any tag absent.
+    `docker login` also writes to the **invoking user's** config, so automation running as
+    another user keeps its own stale token - point at the good config with `DOCKER_CONFIG=`
+    rather than copying the credential (see item 3). And bound the check itself: `docker
+    image inspect` is normally instant but blocks on the content-store lock while a
+    multi-GB layer commits, and an SSH failure (255) or timeout (124) says **nothing** about
+    whether the image exists - never report those as "image missing".
+12. **Windows sshd ignores the per-user `authorized_keys` for administrators.** With the
+    default `Match Group administrators` block it reads only
+    `%ProgramData%\ssh\administrators_authorized_keys`; a per-user key is silently ignored
+    and fails as a plain `Permission denied (publickey)`. That file also needs inheritance
+    removed and its ACL limited to SYSTEM + Administrators.

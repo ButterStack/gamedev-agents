@@ -41,6 +41,15 @@ beats a re-cook; a FAST_COOK tracer (§2) beats a full pipeline (§3).
    parses cleanly.
 4. **Capture the log**: pipe through `tee <output>/cook_output_<id>.log` - the
    metrics and triage in `unreal-observe` §7 read from it.
+5. **Is there anything to cook?** If the project has **no `.umap`/`.uasset`** (a
+   code-only or scaffold project whose Content is placeholders), a cook has nothing
+   to do and its failure teaches nothing - use §5 UBT compile instead. Check before
+   proposing a cook, not after it fails.
+6. **On an installed (binary) engine, check target build settings match.** An editor
+   target that sets `DefaultBuildSettings`/`IncludeOrderVersion` differently from the
+   installed engine is refused outright by UBT in seconds (`unreal-observe` §8). Read
+   them out of `Source/*.Target.cs` during the doctor pass, while a mismatch is still
+   cheap to spot.
 
 ## 1. Invocation forms - Windows vs Linux/Mac
 
