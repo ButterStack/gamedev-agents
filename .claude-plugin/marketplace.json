@@ -36,6 +36,12 @@
       "source": "./jenkins",
       "description": "Observe, operate, and safely diagnose a Jenkins CI/CD server. Read-first; pairs with the Perforce agent's change-commit build loop.",
       "keywords": ["jenkins", "ci", "cd", "gamedev", "unreal", "unity"]
+    },
+    {
+      "name": "godot",
+      "source": "./godot",
+      "description": "Observe, diagnose, and safely operate a Godot 4 project from the command line - read-first, gamedev-focused. Import-cache doctor, export-preset packing rules, GUT green-run verification, and the GDScript traps no linter catches. Verified against Godot 4.7.1, GDScript only.",
+      "keywords": ["godot", "godot4", "gdscript", "gamedev", "headless", "export-presets", "gut", "ci"]
     }
   ]
 }
