@@ -17,6 +17,8 @@ against our own production depots and builds.
 | [**lore**](./lore) | Observe, analyze, and safely operate an Epic Games [Lore](https://github.com/EpicGames/lore) VCS (the `lore` CLI, formerly Unreal Revision Control) - read-first, staging/commit/push/sync/branch/merge, gated `obliterate` & history rewrites. | Ready (v0.1.0) |
 | [**unity**](./unity) | Observe, diagnose, and safely operate a Unity project's CLI build pipeline via the standalone Unity CLI - read-first, Editor-version routing (2022 LTS batchmode vs Unity 6), the batchmode exit-0 trap, gated `unity build`/`test`/`run`, license-vs-auth diagnosis, and the verified Unity 6 Pipeline live-Editor + MCP surface (140 tools, Unity's own confirm/dry_run gates). | Ready (v0.2.0) |
 | [godot](./godot) | Godot headless export/build workflows. | Planned |
+| [reddit](./reddit) | Reddit Devvit app workflows - `devvit` CLI playtest/upload/publish and CI integration for games shipped as Reddit apps. | Planned |
+| [youtube](./youtube) | YouTube Playables packaging and pre-submission readiness checks (no public deploy API - Developer Portal uploads are manual). | Planned |
 | [**jenkins**](./jenkins) | Observe, operate, and safely diagnose a Jenkins CI/CD server; read-first, built around the Perforce `change-commit` → Jenkins build loop, with gated triggers/aborts and the Script Console refused. | Ready (v0.1.0) |
 
 ## Install
