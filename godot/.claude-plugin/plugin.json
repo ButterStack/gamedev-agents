@@ -1,0 +1,24 @@
+{
+  "name": "godot",
+  "displayName": "Godot Agent",
+  "description": "Observe, diagnose, and safely operate a Godot 4 project from the command line. A read-first, gamedev-focused Claude Code agent built around the headless CLI: an import-state DOCTOR (the stale .godot class cache that fails whole suites with phantom errors), export-preset packing rules, GUT's exit-green-on-parse-failure trap, and the GDScript language and lifetime traps that no linter catches. Verified against Godot 4.7.1, GDScript only.",
+  "version": "0.1.0",
+  "author": {
+    "name": "ButterStack"
+  },
+  "homepage": "https://github.com/ButterStack/gamedev-agents/tree/main/godot",
+  "repository": "https://github.com/ButterStack/gamedev-agents",
+  "license": "MIT",
+  "keywords": [
+    "godot",
+    "godot4",
+    "gdscript",
+    "gamedev",
+    "headless",
+    "godot-cli",
+    "export-presets",
+    "gut",
+    "class-cache",
+    "ci"
+  ]
+}

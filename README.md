@@ -16,7 +16,7 @@ against our own production depots and builds.
 | [**unreal**](./unreal) | Observe, diagnose, and safely operate Unreal Engine build/cook/package pipelines and editor automation - read-first, version-matching doctor, cook-log triage, gated `BuildCookRun`/UBT, first-party editor scripting. | Ready (v0.1.0) |
 | [**lore**](./lore) | Observe, analyze, and safely operate an Epic Games [Lore](https://github.com/EpicGames/lore) VCS (the `lore` CLI, formerly Unreal Revision Control) - read-first, staging/commit/push/sync/branch/merge, gated `obliterate` & history rewrites. | Ready (v0.1.0) |
 | [**unity**](./unity) | Observe, diagnose, and safely operate a Unity project's CLI build pipeline via the standalone Unity CLI - read-first, Editor-version routing (2022 LTS batchmode vs Unity 6), the batchmode exit-0 trap, gated `unity build`/`test`/`run`, license-vs-auth diagnosis, and the verified Unity 6 Pipeline live-Editor + MCP surface (140 tools, Unity's own confirm/dry_run gates). | Ready (v0.2.0) |
-| [godot](./godot) | Godot headless export/build workflows. | Planned |
+| [**godot**](./godot) | Observe, diagnose, and safely operate a Godot 4 project from the command line - read-first, `.godot` import-cache doctor, `.uid`/`.import` sidecar hygiene, export-preset packing rules, gated headless import/export, GUT runs with green-run verification, and the GDScript traps no linter catches. Verified against Godot 4.7.1, GDScript only. | Ready (v0.1.0) |
 | [reddit](./reddit) | Reddit Devvit app workflows - `devvit` CLI playtest/upload/publish and CI integration for games shipped as Reddit apps. | Planned |
 | [youtube](./youtube) | YouTube Playables packaging and pre-submission readiness checks (no public deploy API - Developer Portal uploads are manual). | Planned |
 | [**jenkins**](./jenkins) | Observe, operate, and safely diagnose a Jenkins CI/CD server; read-first, built around the Perforce `change-commit` → Jenkins build loop, with gated triggers/aborts and the Script Console refused. | Ready (v0.1.0) |
@@ -63,11 +63,12 @@ MIT. See [LICENSE](./LICENSE).
 Perforce, Helix Core, and P4 are trademarks or registered trademarks of Perforce
 Software, Inc. Unreal Engine, Epic Games, and Lore are trademarks or registered
 trademarks of Epic Games, Inc. Unity is a trademark or registered trademark of
-Unity Technologies. Jenkins is a trademark of the Jenkins project (a
-Continuous Delivery Foundation project).
+Unity Technologies. Godot is a trademark of the Godot Foundation. Jenkins is a
+trademark of the Jenkins project (a Continuous Delivery Foundation project).
 
 ButterStack is not affiliated with, endorsed by, or sponsored by Perforce
-Software, Epic Games, Unity Technologies, or the Jenkins project. These marks
+Software, Epic Games, Unity Technologies, the Godot Foundation, or the Jenkins
+project. These marks
 are used only to identify the third-party tools these agents observe and
 operate; naming a tool is not a claim of partnership or endorsement.
 
