@@ -199,8 +199,11 @@ Do:
 6. Do NOT touch unreal/fixtures/ - those are handled separately.
 7. Do NOT modify the private working repo. Read-only there, always.
 8. Commit with a clear message (temp file + `git commit -F`, ending with
-   "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>", no em dashes) and
-   push to this repo's main.
+   "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>", no em dashes) on a
+   `distill/<topic>-<yyyy-mm>` branch, push the branch, and open a PR against
+   main for human review. Never push distilled content directly to main. If an
+   open `distill/*` PR already exists, add to that branch instead of opening a
+   second PR.
 
 Report: which entries were distilled, before/after line counts for any file you
 changed, anything you excluded and why, and any secret/credential values you

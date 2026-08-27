@@ -144,3 +144,29 @@ No secrets - reference credential *locations*, never paste them.
     `%ProgramData%\ssh\administrators_authorized_keys`; a per-user key is silently ignored
     and fails as a plain `Permission denied (publickey)`. That file also needs inheritance
     removed and its ACL limited to SYSTEM + Administrators.
+13. **Win64 `BuildCookRun` in CI wants a native-Windows host-mode runner** (verified on a
+    real project, 2026-08-25): jobs run directly on the box that already has the engine,
+    the VS toolchain, and the shared DDC. Keep the build logic in a repo script (a
+    one-command `tools\build_windows.ps1` that locates the engine and calls
+    `RunUAT.bat BuildCookRun`); the workflow step just invokes it. A warm shared DDC is
+    why CI packaged in ~5 minutes - budget an hour cold. *(⤳skill: `unreal-build` should
+    know CI-on-host means the engine, toolchain, and DDC are the host's own.)*
+14. **Windows/PowerShell CI traps (each cost a debug cycle):**
+    - A CI runner daemon started over ssh dies with the ssh session (item 10's lesson
+      again, in runner form) and fails *silently*: it stays registered, jobs sit in
+      `waiting` forever. Run it from a scheduled task (`schtasks`, ONLOGON, a start.bat
+      that sets the working directory).
+    - `powershell -File script.ps1` returns **0 even when RunUAT fails** -
+      `$ErrorActionPreference = "Stop"` does not catch native-command exit codes. End the
+      build script with `if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }` or CI lies green.
+    - Host-mode job workspaces (`~/.cache/act/<hash>/hostexecutor`) are **deleted at job
+      end**, build output included. A green build produces nothing unless an
+      upload-artifact step runs.
+    - `actions/upload-artifact@v4` **hard-refuses non-github.com servers** (GHES gate);
+      use **@v3** on Forgejo/Gitea. Same for download-artifact.
+    - A packaged Win64 artifact is ~370 MB compressed per build; set `retention-days` or
+      builds eat the CI server's disk.
+    - GPU jobs in docker-mode runners need a **node-bearing image** (`actions/checkout`
+      is a node action; bare `nvidia/cuda` images die on step one). catthehacker
+      act-22.04 + the NVIDIA container toolkit + `container.options: "--gpus all"` works;
+      driver injection gives nvidia-smi-level access, CUDA only if the image adds it.
