@@ -136,3 +136,35 @@ No secrets - reference credential *locations*, never paste them.
   an Editor plus a probe project. A second machine on hand had much more disk but
   a weak CPU and little RAM, making it the wrong box for Editor work despite the
   free space.
+
+## C. Roadmap / forward-looking (not yet validated)
+
+Nothing here has touched a rig - it's Unity's own public roadmap, from the
+*Unity Engine Roadmap* keynote at Unite Seoul (2026-08-29), recorded so the
+skills can be version-gated before Unity 7 lands. Re-verify each item against
+the first CoreCLR Editor reachable (experimental in Unity 6.7 LTS) and graduate
+confirmed items into A/B; each names the Unity version it applies to.
+
+- **[Unity 7] Domain reloads go away entirely.** Unity says "traditional domain
+  reloads are just going away" under the full CoreCLR transition. That undercuts
+  what A/B validated on **Unity 6.x**: the `requiresDomainReload` field and every
+  create -> `recompile` -> poll -> domain-reload-follows sequence in the Pipeline
+  skill are Unity-6-era behavior that may not hold on Unity 7 - re-derive them
+  against a CoreCLR Editor before trusting them there. (The `unity-pipeline`
+  skill now carries a version-gate note pointing back here.)
+- **[Unity 7] Mono is gone - CoreCLR runtime, .NET 10, C# 14.** Skills that
+  reason about the runtime as Mono or an older .NET/C# become Unity-6-and-
+  earlier only. Batchmode mechanics should survive (they drive the Editor, not
+  the compiler), but the build pipeline itself moves to MSBuild/CSProj.
+- **[Unity 6.6-6.7 LTS] The stepping stones before Unity 7**: an experimental
+  CoreCLR desktop player and pulled-forward IL2CPP player ship in 6.7 (still
+  today's .NET version and C# 9) - the earliest real surface to test the above
+  against; 6.6 defaults to a faster Play Mode and ships an in-Editor Project
+  Auditor aimed at the static-field/memory-leak patterns that break under
+  no-domain-reload.
+- **[Now vs. later] The Unity CLI and its `mcp` mode are already GA and free**,
+  consistent with what this repo validated hands-on. A separate, closed-beta
+  `pipeline` automation layer (node-based/REST, distinct from the
+  `com.unity.pipeline` package this plugin covers) isn't a build target yet.
+  Unity 7's own GA target is early 2027, a direct continuation of Unity 6
+  rather than a breaking rewrite.
