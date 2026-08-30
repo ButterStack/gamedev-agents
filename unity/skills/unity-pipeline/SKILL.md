@@ -243,6 +243,14 @@ loop - and say out loud that it runs inside their session. The Pipeline
 `build` tool supports `dry_run` ("Use dry_run to validate without
 building") - use it as the preview before asking for `confirm`.
 
+> **Version note (applies to Unity 6.x).** Everything in this skill - the
+> `requiresDomainReload` field, and the create -> `recompile` -> poll
+> `recompile_status` / `package_add` -> domain-reload sequences (§6) - is verified
+> **Unity 6.x** behavior. Unity 7 moves to CoreCLR and, per Unity's roadmap,
+> removes traditional domain reloads entirely, so those wait-for-reload steps may
+> not apply there. Treat this skill as Unity-6-scoped until re-verified on a
+> CoreCLR Editor (experimental in 6.7 LTS). See `LEARNINGS.md` §C.
+
 ## 8. Build preconditions - `list_build_targets`, not guesswork
 
 `list_build_targets` reports **`isInstalled` per target** - the correct
