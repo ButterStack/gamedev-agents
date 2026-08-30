@@ -210,3 +210,27 @@ changed, anything you excluded and why, and any secret/credential values you
 found in the source material (do not copy them anywhere - report their location
 only).
 ```
+
+## (f) Instruction files (skills, agents, commands) - mirror, don't compress
+
+`LEARNINGS.md` and `NOTES.md` are a running log you *distill* (sections a-b:
+sanitize and cut 30-50%). The plugin's instruction files are different: they are
+what an end user's agent actually executes - `*/skills/**/SKILL.md`,
+`*/agents/*.md`, `*/commands/*.md` - and they are **mirrored**, not compressed.
+
+- **Sanitize, yes** (section a) and hold to the truthfulness rule (section c) -
+  the same internal-identifier scrub applies.
+- **Do not compress.** Never apply the 30-50% rule to an instruction file, and
+  never drop a step, a flag, an exit code, or a command form to save lines. A
+  half-copied skill is a broken skill. Carry the changed content across
+  faithfully; if a private instruction file has no public counterpart yet, create
+  it at the same relative path.
+- **Fix cross-references for the public repo.** Private-only anchors that don't
+  exist publicly get rewritten, not carried verbatim - e.g. a private
+  `LEARNINGS.md §C (C3)` numbered pointer becomes `LEARNINGS.md §C` once the
+  public LEARNINGS entries are unnumbered.
+
+The auto-distill workflow (`distill.yml` in the private repo) triggers on changes
+to these files as well as to `LEARNINGS.md`/`NOTES.md`, and its prompt carries the
+same two-mode split. Without this, a skill edit in the private repo would never
+reach the public repo, because nothing else syncs instruction files.
