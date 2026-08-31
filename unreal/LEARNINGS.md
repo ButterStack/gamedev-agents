@@ -170,3 +170,10 @@ No secrets - reference credential *locations*, never paste them.
       is a node action; bare `nvidia/cuda` images die on step one). catthehacker
       act-22.04 + the NVIDIA container toolkit + `container.options: "--gpus all"` works;
       driver injection gives nvidia-smi-level access, CUDA only if the image adds it.
+15. **Two traps when authoring the automation scripts themselves, both of which hang
+    instead of erroring.** A PowerShell `[Parameter(Mandatory=$true)]` argument
+    silently prompts on stdin when omitted, so a non-interactive SSH invocation just
+    blocks forever - validate the argument by hand rather than trusting the parameter
+    binder to catch a missing value. And `ssh -n` redirects stdin from `/dev/null`,
+    which silently swallows a heredoc meant to feed a remote `bash -s` - the remote
+    script runs with no input and nothing reports an error.
