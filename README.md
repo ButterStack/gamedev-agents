@@ -54,6 +54,16 @@ are especially valuable - behavior varies a lot by server/engine version and set
 This repo's own content is kept current from ButterStack's private working repo on
 a standing basis - see [DISTILLING.md](./DISTILLING.md) for the process.
 
+## Releases
+
+The repo tag versions the collection, not any individual plugin. Each plugin
+carries its own version in its own `.claude-plugin/plugin.json` and moves on
+its own cadence - perforce and unity can sit at 0.2.0 while unreal, lore,
+godot, and jenkins are still at 0.1.0, and that's expected.
+
+Cut a release by pushing a tag: `git tag v0.3.0 && git push origin v0.3.0`.
+Merging to main publishes nothing.
+
 ## License
 
 MIT. See [LICENSE](./LICENSE).
