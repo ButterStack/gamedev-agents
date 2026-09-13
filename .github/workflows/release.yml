@@ -1,0 +1,55 @@
+# Cut a release by pushing a tag: `git tag v0.3.0 && git push origin v0.3.0`.
+# Produces: a GitHub Release on this repo, titled and noted from the commits
+# since the previous tag. There is no build artifact to publish - this repo
+# is a Claude Code plugin marketplace manifest, not a binary or package - so
+# cutting the release is the workflow's only job, gated by the same lint the
+# `lint.yml` workflow runs on every push and PR, so a tag can never cut a
+# release from a broken marketplace manifest.
+# Plugin versions move independently of this tag: each plugin carries its own
+# version in its own `.claude-plugin/plugin.json` (perforce at 0.2.0, unreal
+# at 0.1.0, and so on) and releases on its own cadence. This tag versions the
+# collection, not any individual plugin - do not bump a plugin's version to
+# match it.
+# Merging to main publishes nothing; only a `v*` tag push triggers this.
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CI: "true"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install Claude Code CLI (provides `claude plugin validate`)
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Ensure shellcheck is available
+        run: |
+          if ! command -v shellcheck >/dev/null 2>&1; then
+            sudo apt-get update && sudo apt-get install -y shellcheck
+          fi
+          shellcheck --version
+
+      - name: Lint plugins
+        run: ./scripts/lint-plugins.sh
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${GITHUB_REF_NAME}" \
+            --generate-notes \
+            --verify-tag
