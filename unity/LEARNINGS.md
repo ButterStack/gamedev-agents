@@ -126,11 +126,40 @@ No secrets - reference credential *locations*, never paste them.
   calls against it work fine, because Unity's live-control server is a loopback
   TCP port that doesn't care which session issued the connection. ⤳skill: on a
   build node reached only over SSH, don't propose the live-control path without
-  a persistence mechanism for the Editor itself.
+  a persistence mechanism for the Editor itself. **Validated 2026-09-23:** the
+  mechanism that actually works is a one-shot scheduled task - a `.cmd` wrapper
+  that runs the Editor and records its exit code to a marker file, launched with
+  `schtasks /create ... /sc once /st 00:00 /f && schtasks /run`, which runs
+  outside the SSH session's process tree; poll the marker and the log from a
+  fresh connection, then `schtasks /delete`. Verified end to end on Unity
+  `6000.3.22f1`: a cold import and a WebGL `-executeMethod` build both survived
+  the SSH session that started them. Two mechanisms that look like a fix are
+  not: `cmd /c start "" /min <wrapper>` hangs the SSH session itself and never
+  launches anything, and `Start-Process` without `-Wait` returns a PID that
+  dies at session exit exactly like the inline case. Don't point the real run's
+  log at stdout (`-logFile -`) either - it's fine for a quick startup probe, but
+  if the reading pipe closes the Editor dies with it. ⤳skill: `unity-build` §8.
 - **The Hub's "add project" folder picker wants the parent directory, not the
   project directory** - it silently rejects the project folder itself and scans
   for children. Registering a project directly by path sidesteps the picker
-  entirely.
+  entirely. The same Hub's **"Add project from repository" flow only recognizes
+  three providers (Unity Version Control, GitHub, GitLab)** and clones the
+  repository root, not a subfolder - a poor fit for a project that lives at
+  `<repo>/unity/` rather than the repo root. Use "Add project from disk" (or
+  `unity projects add <path>`) against an existing clone instead.
+- **A synchronous headless Hub install undersells its own uncertainty, and its
+  progress text oversells completeness.** `Unity Hub.exe -- --headless install
+  --version <ver> --changeset <sha> -m <modules>` blocks until done - about 9
+  minutes for an Editor plus two modules on a wired gigabit test machine - but
+  Unity's CDN caps the download at roughly 12 MB/s regardless of link speed, so
+  don't infer link health from it. The "installed successfully" lines are
+  printed per component, not proof of anything: verify by listing
+  `Editor\Data\PlaybackEngines\` for the expected module folders rather than
+  trusting the summary (the progress output also carries raw ANSI cursor codes
+  that need stripping before grepping it). Once installed, real timings beat
+  the "up to an hour" folklore: a project with 328 scripts and 644 other assets
+  cold-imported in about a minute and a WebGL build finished in under 3 -
+  budget timeouts around that and treat 20+ minutes as a stall, not normal.
 - **Disk, not CPU, was the binding constraint on the primary test rig** - a single
   volume with limited free space before the install, consumed significantly by
   an Editor plus a probe project. A second machine on hand had much more disk but
