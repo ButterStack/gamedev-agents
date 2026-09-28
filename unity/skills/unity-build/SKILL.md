@@ -249,6 +249,52 @@ if any, test pass/fail counts, warnings - not "exit code 0".
 State the cost in the confirmation prompt; if a previous log exists, its
 timestamps beat these estimates.
 
+## 8. Build node reached over Windows OpenSSH
+
+A build/test/run driven over Windows OpenSSH has one more failure mode on top
+of everything above: **OpenSSH kills the whole process tree at session exit.**
+A long Editor run started inline - `ssh node 'unity build ...'` or a raw
+`Unity.exe -batchmode ...` - dies the instant the SSH session ends, with a
+zero-byte or missing log. This reads exactly like "Unity failed to start"; it
+is not - the Editor never got the chance to fail, it was killed.
+
+Two things that look like a fix and are not - don't propose either:
+
+- `cmd /c start "" /min <wrapper>.cmd` - hangs the SSH session itself and
+  never launches anything.
+- `Start-Process` without `-Wait` - returns a PID immediately, but that
+  process dies at session exit exactly like the inline case (no log written).
+
+The pattern that works is a one-shot scheduled task: a `.cmd` wrapper that
+runs the Editor and records its exit code to a marker file, launched via
+`schtasks` so it runs outside the SSH session's process tree, polled from a
+fresh connection, and cleaned up after:
+
+```bat
+:: C:\Users\<user>\<job>.cmd
+"<path to Unity.exe or the unity CLI>" -batchmode -nographics -quit ^
+  -projectPath <project> -executeMethod Builder.PerformBuild ^
+  -logFile C:\Users\<user>\<job>.log
+echo EXITCODE=%ERRORLEVEL% > C:\Users\<user>\<job>.exit
+```
+
+```sh
+schtasks /create /tn <job> /tr C:\Users\<user>\<job>.cmd /sc once /st 00:00 /f && schtasks /run /tn <job>
+```
+
+The `WARNING: Task may not run because /ST is earlier than current time` line
+is harmless - `/run` fires the task immediately regardless. Poll the `.exit`
+marker and the `-logFile` from a fresh SSH connection (or from WSL via
+`/mnt/c/...`), and `schtasks /delete /tn <job> /f` once done.
+
+This changes *how* the job runs, not what "done" means: still verify by
+parsing the log and checking the artifact, never by trusting the marker
+file's exit code alone (§6) - the exit-0 trap (§2) applies exactly as it does
+to any other batchmode invocation. Background and evidence: `LEARNINGS.md`
+§B (the process-tree kill, the two mechanisms that don't work, why CLI calls
+against an already-running Editor don't need this - only starting the Editor
+does - and the verified end-to-end sequence this section distills).
+
 ## Validation status
 
 Command surface, flags, examples, and the licensing/exit-code behavior in this

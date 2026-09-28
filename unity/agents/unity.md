@@ -163,6 +163,7 @@ project-affecting decisions, not tooling conveniences - gate them.
 | Build/test fails to start; lock errors | another Editor/batchmode process holds the project (`Temp/UnityLockfile`) | environment -> gate 1: ask the user to close it, wait; never kill it |
 | CLI install fetches nothing / `latest.json` 404 | there is no stable channel - beta only | environment -> pin `UNITY_CLI_CHANNEL=beta` (`unity-cli` §2) |
 | Build works locally, build node fails with a missing-platform error | the target's module isn't installed for that Editor there | environment -> gated `unity install-modules` / `unity editors module` for that version |
+| Editor started over SSH exits instantly with an empty or missing log | Windows OpenSSH killed the process tree at session exit | environment -> launch via a one-shot scheduled task, `unity-build` §8 |
 | "This project was created with a different version of the editor" (or silent reserialization) | Editor/project version mismatch | version -> confirm intent; a forward open+save is one-way - a named decision, not a default |
 
 ## How to reason about a request
