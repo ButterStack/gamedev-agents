@@ -177,3 +177,28 @@ No secrets - reference credential *locations*, never paste them.
     binder to catch a missing value. And `ssh -n` redirects stdin from `/dev/null`,
     which silently swallows a heredoc meant to feed a remote `bash -s` - the remote
     script runs with no input and nothing reports an error.
+16. **Cloud Windows build worker, moved from an always-on home PC:**
+    - **Ship the engine install as a streamed `tar.xz`.** A Launcher install is ~10
+      GB; copy it once from a known-good machine and pull it onto new workers rather
+      than reinstalling through the Launcher or syncing from source. 7-Zip cannot
+      stream `-t7z` through a pipe, so the upload path is `tar | xz` in parts. Pin the
+      engine version/changelist in the bundle manifest, publish a checksum alongside
+      it, and keep credentials out of the bundle entirely.
+    - **Offscreen screenshots without a GPU need `-warp`.** A GPU-less Windows host
+      logs "Failed to choose a D3D12 Adapter" and skips the WARP software adapter
+      unless launched with `-warp`; without it the screenshot step silently produced
+      zero PNGs while the rest of the build passed. Poll for the output files up to a
+      bounded time instead of sleeping - without a GPU they appear more slowly and
+      less predictably. Any step needing real rendering still needs an actual GPU
+      instance; plan for its quota (0 on a new cloud account) from the start.
+    - **A Launcher-installed engine copied to a new worker must be writable by the
+      agent user.** UAT writes under `Engine\Saved` and the DDC; a non-admin agent
+      user gets `UnauthorizedAccessException` only once the cook starts, well after
+      compile has passed, which makes it look like a late failure. Grant modify
+      rights on the engine tree once during bootstrap, not per job.
+    - **UBT needs the .NET Framework SDK.** A fresh VS Build Tools install missing
+      `Microsoft.Net.Component.4.8.SDK` makes UBT fail fast with a RulesError ("Could
+      not find NetFxSDK install dir") while loading `SwarmInterface` rules. Add the
+      component in the bootstrap; if adding it later, `setup.exe modify` can return 87
+      from a non-interactive session - run the `vs_BuildTools.exe` bootstrapper in
+      modify mode instead.

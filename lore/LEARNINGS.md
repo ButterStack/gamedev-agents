@@ -11,6 +11,18 @@ reference credential *locations*, never paste them.
 
 ---
 
+## 2026-10-02 - Workspace and firewall notes `[integration]`
+
+Learned porting scripts into a Lore repo and standing up a Lore server on a cloud host.
+
+- **`--scan` is also needed for files copied in from outside, not just drifted edits.**
+  `lore status`/`lore stage` only see tracked dirty flags; run `lore status --scan
+  <paths>` (or `lore stage --scan`) first.
+- **A TCP test from an allowlisted address makes a firewalled port look public.** Read
+  the firewall rules, not reachability from your own machine.
+- **The GitHub mirror can lag the source of truth.** Base pipeline edits on the Lore
+  revision, not the mirror's copy.
+
 ## 2026-07-17 - live validation against loreserver 0.8.5 `[integration]` `[skill]`
 
 Learned standing up a real `loreserver 0.8.5` and driving two clones through the
