@@ -23,6 +23,35 @@ Learned porting scripts into a Lore repo and standing up a Lore server on a clou
 - **The GitHub mirror can lag the source of truth.** Base pipeline edits on the Lore
   revision, not the mirror's copy.
 
+## 2026-09-24 - git-to-Lore mirror and push relay on loreserver 0.9.0 `[integration]`
+
+Learned mirroring a 107-commit git repository into Lore across two branches, and
+relaying pushes from a live `loreserver 0.9.0` into our own systems via the
+notification stream.
+
+- **Revision numbers are per branch, not global.** A second branch's replay started
+  renumbering from its parent's revision, so a consumer keying on the bare number
+  alone conflated two branches that happened to share a number, and a relay that
+  kept one global "last seen" cursor silently treated an entire branch's revisions
+  as already-seen. Namespace non-default branches, keep relay state per branch, and
+  dedupe any history two branches inherited by content hash rather than by number.
+- **A push notification's branch field is a 32-hex id, not a name.** Resolve it via
+  `lore branch list` (returns id, name, and location) and skip - don't mark seen -
+  any revision whose branch doesn't resolve yet.
+- **`lore sync <hash>` moves the working copy, not the branch's local pointer.**
+  `lore branch reset --branch <b> <hash>` is what moves the pointer that `revision
+  history --branch` actually reads.
+- **There is no import command, and `lore commit` has no author or date override.**
+  The mirror recipe that worked: one revision per git commit, the tree extracted
+  fresh via `git archive | tar -x`, staged with `lore stage --scan .` (a bare `lore
+  stage .` staged nothing), and the git provenance carried as message trailers
+  (`Git-Commit`, `Git-Author`, `Git-Date`, `Git-Parents`) for downstream
+  SHA-to-revision lookups.
+- **A git commit with no tree change produces no Lore revision at all.** 107 git
+  commits produced only 105 revisions (two empty merge commits), so a
+  SHA-to-revision lookup needs a fallback path rather than assuming every SHA maps
+  to one.
+
 ## 2026-07-17 - live validation against loreserver 0.8.5 `[integration]` `[skill]`
 
 Learned standing up a real `loreserver 0.8.5` and driving two clones through the
@@ -54,3 +83,18 @@ full stage → commit → push → sync → branch loop.
   `lore repository create`), no `lore log` (use `lore history`), no blame, no
   rebase, no squash, and locks are advisory - `lore lock acquire` does not block
   another user's push.
+
+### Push refused when the remote is ahead (2026-09-25)
+
+`lore push` fails with a branch error once the remote has moved past your local
+pointer, even if your working copy already has the files. Recovery: `lore branch
+reset --branch main <remote head>`, `lore sync <remote head>`, re-apply the
+change, `lore stage --scan .`, `lore commit`, `lore push`. There is no rebase -
+the revision made on the stale pointer is simply abandoned.
+
+### Revision numbers are the wrong key for a build (2026-09-25)
+
+A CI build tied to a Lore revision should key on the 64-hex signature, not the
+revision number - the number is per branch and repeats across branches, the
+signature is global. A "commit" validator built for 7-40 hex characters needs
+widening to 64.
