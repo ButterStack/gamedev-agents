@@ -95,6 +95,24 @@ shell environment:
   `p4 login` themselves in their terminal, then re-check `p4 login -s`. Never run
   `p4 login -p` (prints a reusable ticket ≈ credential), never read `P4TICKETS`/
   `p4 tickets` into context, and don't suggest `p4 login -a` (all-hosts ticket).
+- **`-Mj` writes errors to STDOUT, not stderr.** In tagged-JSON mode (`p4 -Mj`,
+  and `-Mj -ztag`) the client emits **every** record - including error records -
+  as JSON on stdout. stderr is empty. Read stderr alone and a failed command
+  gives you nothing but the shell's `exit status 1`, which names no cause at
+  all. Parse stdout instead: one JSON object per line, and the human message is
+  the `data` field of the first record whose `severity` is >= 3 (p4's scale is
+  0 empty, 1 info, 2 warning, 3 failed, 4 fatal). Two traps in that stream - a
+  failing command often emits **successful** records before the error, so the
+  first record is not the error record; and `severity` appears as a number in
+  some versions and a quoted string in others, so parse both. Keep reading
+  stderr as a fallback: a connection-level failure never gets far enough to
+  produce a record. Without `-Mj` the behaviour is the ordinary one and errors
+  do go to stderr, so this applies specifically to the mode you reach for when
+  you want machine-readable output. This cost four separate misdiagnoses in a
+  real webhook-ingestion connector (a missing trust file and an expired ticket,
+  then two changelist sync failures) before it was found: every one of them
+  reported as `perforce: exit status 1`, and the table below was unusable
+  because the message it keys on never arrived.
 - **Distinguish failure classes** - retry/backoff only *network/server* failures,
   never *user* failures:
 
@@ -113,6 +131,7 @@ shell environment:
   | `Client ... unknown` / `must create client` | workspace missing/misconfigured | user → stop |
   | `You don't have permission` | protections | user → stop (check `p4 protects -m`) |
   | (unfamiliar wording) | a **broker** may be rewriting messages | show the user the raw output |
+  | `exit status N` and nothing else | you are running `-Mj` and reading stderr; the real record is on stdout | **not** a p4 failure class at all - fix the caller (see above) before classifying |
 
 ## The read-only checkout model - game-critical
 

@@ -12,6 +12,27 @@ them.
 
 ---
 
+## 2026-10-02 - Standing up an empty replacement server `[integration]`
+
+Learned replacing a Helix Core server with a new, deliberately empty one in a
+container, while CI and an observability backend still held records from the old one.
+
+- **An empty replacement restarts change numbers at 1, colliding with anything keyed
+  by change number** - the backend held records for changes 1-208, which a reissued
+  change 1 would overwrite. Raise the counter before the first submit (`p4 counter -f
+  change <n>`, well above the old max); do the same for CI build counters unless
+  restored from backup.
+- **A file the daemon reads must be owned by the daemon's uid, not root with mode
+  0600.** A root-owned ticket file and `.p4trust` gave "permission denied" at startup
+  for a non-root container process; `chown` them to the service uid.
+- **The trust entry is keyed by the server's resolved address, so it doesn't travel.**
+  A container's address differs on a new host - regenerate it there and ship the file:
+  `P4TRUST=/tmp/t p4 -p ssl:<host>:1666 trust -y`.
+- **A setup script reading passwords from `*_FILE` env vars can't run under a runner
+  that strips the environment** (AWS SSM Run Command is one) - prepend `export` lines
+  to a throwaway copy and delete it afterwards; never pass secrets as arguments, since
+  the runner stores the command text.
+
 ## 2026-09-14 - the typemap is one server-wide table, and a p4d container image is a second writer `[integration]`
 
 Learned running a Git->Perforce mirror against a p4d that ships as a Docker image and
